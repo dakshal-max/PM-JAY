@@ -5,6 +5,7 @@ const db = require('./db');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+const HOST = '0.0.0.0';
 
 app.use(cors());
 app.use(express.json());
@@ -359,7 +360,7 @@ app.post('/api/chat', (req, res) => {
       : 'All senior citizens aged 70 and above qualify under Ayushman Vay Vandana card regardless of family income, receiving an exclusive ₹5 Lakh yearly cover!';
   } else {
     reply = isHindi
-      ? `आपके सवाल "${q}" के संबंध में: आयुष्मान हब (AyushmanHub) पर भर्ती से पूर्व एवं पश्चात् की दवाएँ, जाँच तथा 1,900+ सर्जरी मुफ़्त हैं। अधिक जानकारी हेतु हेल्प लाइन 14555 पर कॉल करें।`
+      ? `आपके सवाल "${q}" के संबंध में: आयुष्मान हब (AyushmanHub) पर भर्ती से पूर्व एवं पश्चात् की दवाएँ, जाँच तथा 1,900+ सर्जरी मुफ़्त हैं। अधिक जानकारी हेतु हेल्पलाइन 14555 पर कॉल करें।`
       : `Regarding your query "${q}": AyushmanHub covers pre and post hospitalization tests, medicines and 1,900+ procedures cashless up to ₹5 Lakh/year. You can also dial toll-free helpline 14555.`;
   }
 
@@ -389,6 +390,6 @@ app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
-app.listen(PORT, () => {
-  console.log(`AyushmanHub Server running on http://localhost:${PORT}`);
+app.listen(PORT, HOST, () => {
+  console.log(`AyushmanHub Server running on http://${HOST}:${PORT}`);
 });

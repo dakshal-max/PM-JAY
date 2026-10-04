@@ -9,7 +9,11 @@ const HOST = '0.0.0.0';
 
 app.use(cors());
 app.use(express.json());
-app.use(express.static(path.join(__dirname, 'public')));
+
+// Health Check for Render deployment
+app.get('/health', (req, res) => {
+  res.status(200).json({ status: 'ok', app: 'AyushmanHub' });
+});
 
 function haversineDistance(lat1, lon1, lat2, lon2) {
   if (!lat1 || !lon1 || !lat2 || !lon2) return 2.5;
@@ -386,8 +390,19 @@ app.post('/api/documents', (req, res) => {
   return res.json({ success: true, data: docs });
 });
 
+// ---------------------------------------------------------
+// STATIC FILES & SPA ROUTING
+// ---------------------------------------------------------
+app.use(express.static(path.join(__dirname, 'public')));
+
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+  const indexPath = path.join(__dirname, 'public', 'index.html');
+  res.sendFile(indexPath, (err) => {
+    if (err) {
+      console.error('Error sending index.html:', err);
+      res.status(500).send('Error loading application page.');
+    }
+  });
 });
 
 app.listen(PORT, HOST, () => {

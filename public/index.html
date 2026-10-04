@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ayushman Saathi – PM-JAY Guide</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+:root{color-scheme:dark;--bg:#07090b;--em:#34d399;--tx:#f1f5f4;--mu:#a7b5b1;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{background:var(--bg);color:var(--tx);font-family:Inter,system-ui,-apple-system,'Segoe UI','Noto Sans Devanagari',sans-serif;font-size:18px;line-height:1.6;min-height:100%;
+background-image:radial-gradient(60% 40% at 15% 0%,rgba(16,185,129,.18),transparent 70%),radial-gradient(50% 35% at 90% 25%,rgba(20,184,166,.12),transparent 70%);background-attachment:fixed}
+
+.g{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-radius:28px}
+.btn{min-height:56px;padding:0 26px;border-radius:18px;font-weight:600;display:inline-flex;align-items:center;justify-content:center;gap:10px;transition:.2s;cursor:pointer}
+.btn:active{transform:scale(.97)}
+.pri{background:linear-gradient(135deg,#10b981,#14b8a6);color:#04120d;box-shadow:0 0 30px rgba(16,185,129,.3)}
+.pri:hover{box-shadow:0 0 44px rgba(16,185,129,.5)}
+.sec{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14)}
+.sec:hover{background:rgba(255,255,255,.1)}
+
+/* VISIBLE DROP-DOWN STYLING FOR MAXIMUM VISIBILITY */
+select.inp {
+  background-color: rgba(18, 24, 27, 0.96) !important;
+  color: #ffffff !important;
+  border: 1.5px solid rgba(52, 211, 153, 0.4) !important;
+  font-weight: 600;
+  cursor: pointer;
+}
+select.inp option {
+  background-color: #0f1718 !important;
+  color: #ffffff !important;
+  padding: 12px;
+  font-size: 16px;
+}
+select.inp:focus {
+  border-color: #34d399 !important;
+  box-shadow: 0 0 0 3px rgba(52,211,153,0.3);
+}
+
+.inp{width:100%;min-height:56px;padding:0 18px;border-radius:16px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.18);color:#fff;font-size:18px}
+.inp::placeholder{color:#7b8985}
+:focus-visible{outline:3px solid #6ee7b7;outline-offset:2px}
+.fade{animation:f .45s ease both}@keyframes f{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.acc{display:grid;grid-template-rows:0fr;transition:grid-template-rows .35s ease}.acc.o{grid-template-rows:1fr}.acc>div{overflow:hidden}
+.chev{transition:.3s}.o .chev{transform:rotate(180deg)}
+.chk{display:flex;gap:14px;align-items:center;min-height:60px;padding:12px 18px;border-radius:18px;border:1px solid rgba(255,255,255,.14);cursor:pointer;transition:.2s;background:rgba(255,255,255,.03)}
+.chk.on{border-color:#34d399;background:rgba(52,211,153,.12)}
+.glow{text-shadow:0 0 40px rgba(52,211,153,.35)}
+.bar{height:6px;border-radius:9px;background:rgba(255,255,255,.1)}.bar i{display:block;height:100%;border-radius:9px;background:linear-gradient(90deg,#10b981,#2dd4bf);transition:width .5s}
+.badge-live{background:rgba(16,185,129,0.2);color:#34d399;border:1px solid rgba(52,211,153,0.3);padding:3px 10px;border-radius:999px;font-size:12px;font-weight:600}
+.badge-pub{background:rgba(59,130,246,0.2);color:#60a5fa;border:1px solid rgba(96,165,250,0.3);padding:2px 8px;border-radius:6px;font-size:12px}
+.badge-pri{background:rgba(168,85,247,0.2);color:#c084fc;border:1px solid rgba(192,132,252,0.3);padding:2px 8px;border-radius:6px;font-size:12px}
+
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<script>
+const IC={
+shield:'<path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/>',
+phone:'<path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/>',
+down:'<path d="m6 9 6 6 6-6"/>',check:'<path d="M20 6 9 17l-5-5"/>',
+pin:'<path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/>',
+search:'<circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/>',
+msg:'<path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/>',x:'<path d="M18 6 6 18M6 6l12 12"/>',
+send:'<path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/>',
+rupee:'<path d="M6 3h12M6 8h12M6 13l8.5 8M6 13h3a4 4 0 0 0 0-10"/>',
+bld:'<rect x="4" y="2" width="16" height="20" rx="2"/><path d="M9 22v-4h6v4M12 6v4M10 8h4"/>',
+clock:'<circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>',
+heart:'<path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>',
+users:'<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 1 0 7.75"/>',
+lang:'<path d="m5 8 6 6M4 14l6-6 2-3M2 5h12M7 2h1M22 22l-5-10-5 10M14 18h6"/>',
+nav:'<polygon points="3 11 22 2 13 21 11 13 3 11"/>'};
+const ic=(n,s=24,c='')=>`<svg class="${c}" width="${s}" height="${s}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${IC[n]}</svg>`;
+
+const L={en:{
+brand:'Ayushman Saathi',call:'Helpline 14555',
+h1a:'Free health cover,',h1b:'explained simply.',sub:'Check if your family is covered by PM-JAY, find live empaneled hospitals near your city/sub-city (Kharghar, Vashi, Panvel, Andheri, Dadar), and track hospital claims.',
+cta1:'Check eligibility',cta2:'Find Hospitals',tag:'Up to ₹5 lakh per family, every year',
+elT:'Am I eligible?',elS:'3 quick steps. Verified live with PM-JAY database.',s1:'About your family',s2:'Identify yourself',s3:'Your household',
+age:'Age of the oldest family member',st:'Your state',stPh:'-- Select State --',
+q2:'Enter your ration card number or 10-digit mobile number',idPh:'Ration card / mobile number',idErr:'Please enter at least 10 digits or characters.',
+q3:'Does any of these apply to your household? (tap all that apply)',
+c:['Live in a kutcha (mud/thatch) house','No adult earning member (age 16–59)','Belong to SC / ST community','Earn mainly through manual labour','Have a member with a disability','Landless, earning from casual work'],
+next:'Continue',back:'Back',see:'Check Eligibility Live',again:'Check again',
+ok:'Good news — you are likely eligible!',okS:'Visit the nearest empaneled hospital or Common Service Centre with your Aadhaar and ration card to get your Ayushman card.',
+elderly:'Because a member is 70 or above, your family qualifies under Ayushman Vay Vandana.',
+no:'We could not confirm eligibility',noS:'Eligibility depends on official records. Please verify at your nearest CSC or call 14555.',
+sim:'Verified live with Backend Server.',
+bT:'All PM-JAY Benefits & Features',bS:'Complete overview of health coverage provided under Ayushman Bharat.',
+b:[['rupee','₹5 Lakh Yearly Family Cover','Each eligible family gets health cover of up to ₹5,00,000 every year for secondary & tertiary hospital care. Cover is shared among all family members with NO capping on family size or member age.'],
+['shield','100% Cashless & Paperless','Show your Ayushman Card at any empaneled public or private hospital across India. Treatment is completely cashless — no cash, no security deposits, no counter payment.'],
+['bld','Pre & Post Hospitalization Covered','Covers diagnostic medical tests, doctor consultations & medicines up to 3 days prior to admission and up to 15 days follow-up care after discharge.'],
+['heart','1,949+ Medical & Surgical Packages','Covers surgeries, cancer treatment, heart procedures, dialysis, ICU care, maternity & pediatric care. Pre-existing medical conditions are covered from Day 1.'],
+['users','Senior Citizens 70+ (Ayushman Vay Vandana)','ALL senior citizens aged 70 and above qualify for an exclusive ₹5 Lakh/year top-up cover under Ayushman Vay Vandana, regardless of family income.']],
+cT:'Live Claim Tracker & Hospital Claims',cS:'Select an active claim from the database below or search by Claim ID.',cPh:'Claim ID e.g. PMJAY-48210',track:'Track Live',cErr:'Claim ID must be at least 6 characters.',
+cs:['Claim submitted','Documents verified','Claim approved','Payment released'],cNow:'Current status',
+hT:'Find Empaneled Hospitals by State, City & Sub-City',hS:'Select your State, City, and Sub-City (e.g., Kharghar, Vashi, Panvel, Andheri), or detect live GPS location.',
+stFilter:'1. Select State',ctFilter:'2. Select City',subFilter:'3. Select Sub-City / Locality',gpsBtn:'📍 Detect Hospitals Near My Current Location Live',pinPh:'Or enter 6-digit PIN',km:'km away',
+em:'Emergency? Call 14555',emS:'Toll-free, free of charge 24x7',
+aiT:'Ask Saathi (AI Assistant)',aiPh:'Ask in simple words…',aiHi:'Hello! Ask me anything about PM-JAY eligibility, claims, or hospitals.',
+chips:['How to get my card?','Is treatment free?','Documents needed'],
+fb:'I am not sure about that. Please call the helpline 14555 — they can help.',
+foot:'Ayushman Saathi Live Full-Stack Portal · Connected to REST Backend Server',
+fT:'My Family Health Card',fS:'Manage family members & view remaining ₹5 Lakh annual cover.',nm:'Name',ag:'Age',add:'Add Member',used:'Used',left:'left',card:'AYUSHMAN CARD',
+pT:'Is My Treatment Covered?',pS:'Browse PM-JAY treatment master list with package rates & codes.',cov:'Covered',ncov:'Not covered',covS:'Cashless at empaneled hospitals.',ncovS:'Not covered under PM-JAY. Ask the hospital or call 14555.',
+dT:'Documents Checklist',dS:'Tick what is ready. Synced live with database.',d:['Aadhaar card','Ration card','Mobile linked to Aadhaar','Age proof (for 70+)','Hospital referral (if any)'],
+gT:'Raise a Complaint / Grievance',gS:'Asked to pay money? Treatment refused? Register a formal complaint.',gt:['Hospital asked for money','Treatment refused','Card problem','Other'],gPh:'Describe what happened…',gs:'Submit Complaint',gOk:'Complaint registered. Reference ID:',gErr:'Please describe the issue.',ta:'Text size',
+// HOSPITAL DAY SIMULATOR DICTIONARY
+sT:'Hospital Day Simulator',sS:'Play 5 real-life situations. Learn your rights and spot fraud before it happens.',sN:'Situation',sNx:'Next Situation',sEnd:'Your result',sRe:'Play again',sC:'Correct!',sW:'Not quite.',
+sB:['Rights Champion','Alert Saathi','Keep Learning'],sOf:'out of 5',sH:'Remember: covered treatment is cashless. Report any demand for money on 14555.',
+sc:[
+['At the hospital gate, a stranger says: "Pay ₹500 and I will make your Ayushman card quickly."',['Pay him ₹500','Say no and walk to the hospital Arogya Mitra help desk','Give him your Aadhaar and phone'],1,'Ayushman cards are free. Every empaneled hospital has an Arogya Mitra desk to help you at no cost.'],
+['The doctor says the surgery is covered but you must buy the medicines from an outside shop.',['Buy them quickly','Ask for it in writing and speak to the Arogya Mitra','Leave the hospital'],1,'Covered treatment should include medicines and consumables. Ask politely, involve the Arogya Mitra, and call 14555 if refused.'],
+['A caller says: "Your Ayushman claim is stuck. Share the OTP to release it."',['Share the OTP','Hang up, never share OTP, and call 14555 to check','Send a photo of your Aadhaar'],1,'Nobody official ever needs your OTP. This is a common scam to empty bank accounts.'],
+['At discharge, billing asks for ₹3,000 "service charge" for covered treatment.',['Pay to avoid delay','Refuse politely, ask for the itemised bill and complain on 14555','Shout and leave without papers'],1,'You should not pay for covered treatment. Stay calm, keep documents, and report the demand.'],
+['A neighbour says: "Get admitted with your card and the hospital will pay you cash."',['Agree and split the cash','Decline: fake admission is fraud and can block your card','Ask others to join'],1,'Fake admissions are fraud. They can cancel your card and cost your family real cover when you truly need it.']
+]},
+hi:{
+brand:'आयुष्मान साथी',call:'हेल्पलाइन 14555',
+h1a:'मुफ़्त स्वास्थ्य कवर,',h1b:'आसान भाषा में।',sub:'जानिए क्या आपका परिवार PM-JAY में आता है, अपने राज्य, शहर व उप-शहर (खारघर, वाशी, पनवेल, अंधेरी, दादर) के नज़दीकी अस्पताल खोजिए और क्लेम लाइव ट्रैक कीजिए।',
+cta1:'पात्रता जाँचें',cta2:'अस्पताल खोजें',tag:'हर साल प्रति परिवार ₹5 लाख तक',
+elT:'क्या मैं पात्र हूँ?',elS:'3 आसान चरण। लाइव सर्वर से सत्यापित।',s1:'आपका परिवार',s2:'पहचान',s3:'आपका घर',
+age:'परिवार के सबसे बुज़ुर्ग सदस्य की उम्र',st:'आपका राज्य',stPh:'-- राज्य चुनें --',
+q2:'अपना राशन कार्ड नंबर या 10 अंकों का मोबाइल नंबर दर्ज करें',idPh:'राशन कार्ड / मोबाइल नंबर',idErr:'कृपया कम से कम 10 अंक/अक्षर दर्ज करें।',
+q3:'क्या इनमें से कोई आप पर लागू होता है? (सभी चुनें)',
+c:['कच्चे (मिट्टी/फूस) घर में रहते हैं','16–59 वर्ष का कोई कमाने वाला वयस्क नहीं','SC / ST समुदाय से हैं','मुख्यतः मज़दूरी से कमाई','परिवार में कोई दिव्यांग सदस्य','भूमिहीन, दिहाड़ी से कमाई'],
+next:'आगे बढ़ें',back:'पीछे',see:'लाइव पात्रता जाँचें',again:'फिर से जाँचें',
+ok:'खुशखबरी — आप संभवतः पात्र हैं!',okS:'आधार और राशन कार्ड के साथ नज़दीकी सूचीबद्ध अस्पताल या कॉमन सर्विस सेंटर जाकर आयुष्मान कार्ड बनवाएँ।',
+elderly:'परिवार में 70 वर्ष या उससे अधिक का सदस्य होने से आप आयुष्मान वय वंदना के पात्र हैं।',
+no:'पात्रता की पुष्टि नहीं हो सकी',noS:'पात्रता सरकारी रिकॉर्ड पर निर्भर है। कृपया नज़दीकी CSC पर जाँचें या 14555 पर कॉल करें।',
+sim:'लाइव बैकएंड सर्वर से सत्यापित।',
+bT:'PM-JAY के सभी लाभ एवं सुविधाएँ',bS:'आयुष्मान भारत योजना के तहत मिलने वाली मुफ़्त स्वास्थ्य सेवाओं की संपूर्ण जानकारी।',
+b:[['rupee','हर साल ₹5 लाख का मुफ़्त स्वास्थ्य बीमा','प्रत्येक पात्र परिवार को द्वितीयक और तृतीयक देखभाल के लिए हर साल ₹5,00,000 तक का स्वास्थ्य बीमा मुफ़्त मिलता है। परिवार के आकार या उम्र की कोई सीमा नहीं।'],
+['shield','100% कैशलेस एवं पेपरलेस इलाज','देश के किसी भी सूचीबद्ध सरकारी या निजी अस्पताल में आयुष्मान कार्ड दिखाएँ। इलाज पूरी तरह कैशलेस है — कोई पैसे या सिक्योरिटी डिपॉजिट नहीं देना।'],
+['bld','अस्पताल में भर्ती से पहले व बाद का खर्च','भर्ती से 3 दिन पहले की जाँचें व दवाइियाँ तथा डिस्चार्ज के 15 दिनों बाद तक की देखभाल और दवाइियाँ मुफ़्त शामिल हैं।'],
+['heart','1,949+ मेडिकल एवं सर्जिकल पैकेज','सर्जरी, कैंसर, हृदय रोग, डायलिसिस, आईसीयू, प्रसूति और बाल रोग शामिल हैं। पहले से मौजूद बीमारियाँ भी पहले दिन से कवर हैं।'],
+['users','70+ वर्ष के वरिष्ठ नागरिक (आयुष्मान वय वंदना)','70 वर्ष और उससे अधिक के सभी वरिष्ठ नागरिकों को आय की सीमा के बिना ₹5 लाख का विशेष वार्षिक कवर मिलता है।']],
+cT:'लाइव क्लेम ट्रैकर एवं अस्पताल क्लेम',cS:'नीचे दी गई सूची से क्लेम चुनें या अपना क्लेम ID डालकर लाइव स्थिति देखें।',cPh:'क्लेम ID जैसे PMJAY-48210',track:'लाइव ट्रैक करें',cErr:'क्लेम ID कम से कम 6 अक्षर का हो।',
+cs:['क्लेम जमा','दस्तावेज़ सत्यापित','क्लेम स्वीकृत','भुगतान जारी'],cNow:'वर्तमान स्थिति',
+hT:'राज्य, शहर एवं उप-शहर अनुसार नज़दीकी अस्पताल खोजें',hS:'राज्य, शहर एवं उप-शहर (जैसे खारघर, वाशी, पनवेल, अंधेरी, दादर) चुनें या लाइव लोकेशन खोजें।',
+stFilter:'1. राज्य चुनें',ctFilter:'2. शहर चुनें',subFilter:'3. उप-शहर / क्षेत्र चुनें',gpsBtn:'📍 मेरी वर्तमान लोकेशन के नज़दीकी अस्पताल खोजें',pinPh:'या 6 अंकों का पिन दर्ज करें',km:'किमी दूर',
+em:'आपातकाल? 14555 पर कॉल करें',emS:'टोल-फ़्री, 24x7 निःशुल्क सेवा',
+aiT:'साथी से पूछें (AI असिस्टेंट)',aiPh:'आसान शब्दों में पूछें…',aiHi:'नमस्ते! PM-JAY के बारे में कुछ भी पूछिए।',
+chips:['कार्ड कैसे बनेगा?','क्या इलाज मुफ़्त है?','कौन से दस्तावेज़'],
+fb:'इस बारे में मुझे पक्का पता नहीं। कृपया हेल्पलाइन 14555 पर कॉल करें।',
+foot:'आयुष्मान साथी लाइव फुल-स्टैक पोर्टल · REST बैकएंड सर्वर से कनेक्टेड',
+fT:'मेरा परिवार कार्ड',fS:'सदस्य जोड़ें और बचा हुआ ₹5 लाख सालाना कवर देखें (लाइव बैकएंड DB)।',nm:'नाम',ag:'उम्र',add:'सदस्य जोड़ें',used:'उपयोग',left:'शेष',card:'आयुष्मान कार्ड',
+pT:'क्या मेरा इलाज कवर है?',pS:'पैकेज दरों एवं कोड के साथ PM-JAY मास्टर सूची देखें।',cov:'कवर है',ncov:'कवर नहीं',covS:'सूचीबद्ध अस्पतालों में कैशलेस।',ncovS:'PM-JAY में कवर नहीं। अस्पताल से पूछें या 14555 पर कॉल करें।',
+dT:'दस्तावेज़ चेकलिस्ट',dS:'जो तैयार है उस पर टिक करें। बैकएंड में सहेजा जाता है।',d:['आधार कार्ड','राशन कार्ड','आधार से जुड़ा मोबाइल','उम्र का प्रमाण (70+ के लिए)','अस्पताल रेफ़रल (यदि हो)'],
+gT:'शिकायत दर्ज करें',gS:'पैसे माँगे गए? इलाज से मना किया? शिकायत दर्ज कराएँ।',gt:['अस्पताल ने पैसे माँगे','इलाज से मना किया','कार्ड की समस्या','अन्य'],gPh:'क्या हुआ बताएँ…',gs:'शिकायत जमा करें',gOk:'शिकायत दर्ज हुई। संदर्भ ID:',gErr:'कृपया समस्या लिखें।',ta:'अक्षर आकार',
+sT:'अस्पताल दिवस सिमुलेटर',sS:'5 असली हालात खेलें। अपने अधिकार जानें और धोखे को पहले ही पहचानें।',sN:'स्थिति',sNx:'आगे बढ़ें',sEnd:'आपका नतीजा',sRe:'फिर खेलें',sC:'सही!',sW:'ठीक नहीं।',
+sB:['अधिकार चैंपियन','सतर्क साथी','सीखते रहिए'],sOf:'में से 5',sH:'याद रखें: कवर इलाज कैशलेस है। पैसे माँगे जाएँ तो 14555 पर शिकायत करें।',
+sc:[
+['अस्पताल के गेट पर एक अजनबी कहता है: "₹500 दो, मैं जल्दी आयुष्मान कार्ड बनवा दूँगा।"',['₹500 दे दें','मना करें और अस्पताल के आरोग्य मित्र डेस्क पर जाएँ','उसे आधार और फ़ोन दे दें'],1,'आयुष्मान कार्ड मुफ़्त बनता है। हर सूचीबद्ध अस्पताल में आरोग्य मित्र डेस्क निःशुल्क मदद करता है।'],
+['डॉक्टर कहते हैं सर्जरी कवर है, पर दवाइयाँ बाहर की दुकान से लानी होंगी।',['जल्दी से ले आएँ','लिखित में माँगें और आरोग्य मित्र से बात करें','अस्पताल छोड़ दें'],1,'कवर इलाज में दवाइयाँ और ज़रूरी सामान शामिल होने चाहिए। विनम्रता से पूछें, आरोग्य मित्र को बताएँ, मना हो तो 14555 पर कॉल करें।'],
+['कोई फ़ोन पर कहता है: "आपका आयुष्मान क्लेम अटका है। OTP बताइए।"',['OTP बता दें','फ़ोन काटें, OTP कभी न बताएँ, 14555 पर जाँचें','आधार की फ़ोटो भेज दें'],1,'कोई भी सरकारी कर्मचारी आपका OTP नहीं माँगता। यह बैंक खाली करने वाली आम ठगी है।'],
+['छुट्टी के समय बिलिंग वाले कवर इलाज पर ₹3,000 "सर्विस चार्ज" माँगते हैं।',['देरी से बचने को दे दें','विनम्रता से मना करें, विस्तृत बिल माँगें और 14555 पर शिकायत करें','चिल्लाकर बिना कागज़ात निकल जाएँ'],1,'कवर इलाज के लिए पैसे नहीं देने चाहिए। शांत रहें, कागज़ात रखें और शिकायत करें।'],
+['पड़ोसी कहता है: "कार्ड से भर्ती हो जाओ, अस्पताल नक़द पैसे देगा।"',['मान लें और पैसे बाँटें','मना करें: फ़र्ज़ी भर्ती धोखाधड़ी है, कार्ड बंद हो सकता है','दूसरों को भी बुलाएँ'],1,'फ़र्ज़ी भर्ती धोखाधड़ी है। इससे कार्ड रद्द हो सकता है और असली ज़रूरत पर कवर खो सकता है।']
+]}};
+
+// STATE -> CITIES -> SUB-CITIES / LOCALITIES HIERARCHY
+const STATE_CITIES_SUBCITIES = {
+  'Maharashtra': {
+    'Mumbai & Metropolitan Region': ['All Sub-Cities', 'Navi Mumbai - Kharghar', 'Navi Mumbai - Vashi', 'Navi Mumbai - Belapur', 'Panvel', 'Andheri', 'Dadar', 'Parel', 'Fort / CSMT', 'Bandra', 'Ghatkopar'],
+    'Thane Region': ['All Sub-Cities', 'Kalwa', 'Thane West', 'Kalyan', 'Dombivli'],
+    'Pune Region': ['All Sub-Cities', 'Shivajinagar', 'Erandwane', 'Kothrud', 'Hinjewadi', 'Pimpri-Chinchwad'],
+    'Nagpur Region': ['All Sub-Cities', 'Hanuman Nagar', 'Dharampeth', 'Sitabuldi'],
+    'Nashik Region': ['All Sub-Cities', 'Civil Lines', 'Indira Nagar']
+  },
+  'Delhi NCR': {
+    'New Delhi': ['All Sub-Cities', 'Ansari Nagar (AIIMS)', 'Safdarjung Enclave', 'Connaught Place'],
+    'South Delhi': ['All Sub-Cities', 'Saket', 'Green Park', 'Lajpat Nagar'],
+    'East Delhi': ['All Sub-Cities', 'Shahdara / Dilshad Garden', 'Mayur Vihar', 'Preet Vihar'],
+    'North & West Delhi': ['All Sub-Cities', 'Civil Lines', 'Rohini', 'Dwarka'],
+    'NCR Satellite Cities': ['All Sub-Cities', 'Noida', 'Greater Noida', 'Gurugram', 'Faridabad', 'Ghaziabad']
+  },
+  'Uttar Pradesh': {
+    'Lucknow': ['All Sub-Cities', 'Chowk (KGMU)', 'Raebareli Road (SGPGI)', 'Gomti Nagar', 'Aliganj'],
+    'Varanasi': ['All Sub-Cities', 'Lanka (BHU Campus)', 'Kabir Chaura', 'Cantonment'],
+    'Kanpur': ['All Sub-Cities', 'Swaroop Nagar', 'Kakadeo', 'Civil Lines'],
+    'Agra': ['All Sub-Cities', 'MG Road Agra', 'Sanjay Place'],
+    'Gorakhpur': ['All Sub-Cities', 'Medical College Road', 'Civil Lines']
+  },
+  'Bihar': {
+    'Patna': ['All Sub-Cities', 'Ashok Rajpath (PMCH)', 'Bailey Road (IGIMS)', 'Kankarbagh', 'Danapur'],
+    'Gaya': ['All Sub-Cities', 'Sherghati Road', 'Civil Lines'],
+    'Muzaffarpur': ['All Sub-Cities', 'SKMCH Road', 'Jawahar Lal Road'],
+    'Bhagalpur': ['All Sub-Cities', 'Mayaganj (JLNMCH)', 'Zero Mile']
+  },
+  'Gujarat': {
+    'Ahmedabad': ['All Sub-Cities', 'Asarwa (Civil)', 'CG Road', 'Satellite', 'Bodakdev'],
+    'Surat': ['All Sub-Cities', 'Majura Gate', 'Adajan', 'Varachha'],
+    'Vadodara': ['All Sub-Cities', 'Sayajiganj', 'Alkapuri', 'Gotri']
+  },
+  'Karnataka': {
+    'Bengaluru': ['All Sub-Cities', 'Fort Road (KR Market)', 'Bannerghatta Road', 'Whitefield', 'Indiranagar', 'Koramangala'],
+    'Mysuru': ['All Sub-Cities', 'KR Hospital Zone', 'Jayalakshmipuram']
+  },
+  'West Bengal': {
+    'Kolkata': ['All Sub-Cities', 'Bhowanipore (SSKM)', 'College Street (MCK)', 'Salt Lake Sector 5', 'New Town']
+  },
+  'Tamil Nadu': {
+    'Chennai': ['All Sub-Cities', 'Park Town (RGGGH)', 'Omandurar Estate', 'Adyar', 'Anna Nagar']
+  },
+  'Rajasthan': {
+    'Jaipur': ['All Sub-Cities', 'SMS Hospital Zone', 'Malviya Nagar', 'Vaishali Nagar']
+  },
+  'Madhya Pradesh': {
+    'Indore': ['All Sub-Cities', 'MY Hospital Zone', 'Vijay Nagar', 'Palasia']
+  }
+};
+const STATES = Object.keys(STATE_CITIES_SUBCITIES);
+
+// Global State Store
+const S={
+  lang:'en',step:1,age:'',state:'',id:'',flags:[],err:'',
+  acc:-1,
+  claim:'',cres:null,cdata:null,cerr:false,cLoading:false,claimsList:[],
+  hState:'', hCity:'', hSubcity:'', pin:'', searchQ:'', userLat:null, userLng:null, hospitalsData:[], hLoading:false, gpsMsg:'',
+  chat:[],open:false,chatLoading:false,
+  famData:{ cardId:'AYUSH-8849-2026', totalCover: 500000, usedAmount: 120000, members: [] },
+  fn:'',fa:'',ps:0,treatmentsData:[],
+  gt:0,gx:'',gr:'',gLoading:false,
+  fs:0,docs:[],
+  sm:{ i:0, sc:0, p:-1 }
+};
+
+const t=()=>L[S.lang];
+
+// SIMULATOR FUNCTIONS
+function sp(k){
+  const m = S.sm, q = t().sc[m.i];
+  if(m.p >= 0) return;
+  m.p = k;
+  if(k === q[2]) m.sc++;
+  rr();
+}
+
+function sn(){
+  S.sm.i++;
+  S.sm.p = -1;
+  rr();
+  const el = document.getElementById('sim');
+  if(el) el.scrollIntoView({behavior:'smooth'});
+}
+
+function sim(){
+  const T = t(), m = S.sm, n = T.sc.length;
+  let b;
+
+  if(m.i >= n){
+    const r = 2 * Math.PI * 52;
+    const k = m.sc === n ? 0 : (m.sc >= 3 ? 1 : 2);
+    b = `<div class="fade text-center py-4">
+      <svg width="150" height="150" viewBox="0 0 120 120" class="mx-auto" role="img" aria-label="${m.sc}/${n}">
+        <circle cx="60" cy="60" r="52" fill="none" stroke="rgba(255,255,255,.1)" stroke-width="9"/>
+        <circle cx="60" cy="60" r="52" fill="none" stroke="#34d399" stroke-width="9" stroke-linecap="round" stroke-dasharray="${r * m.sc / n} ${r}" transform="rotate(-90 60 60)"/>
+        <text x="60" y="68" text-anchor="middle" fill="#fff" font-size="26" font-weight="700">${m.sc}/${n}</text>
+      </svg>
+      <h3 class="text-3xl font-bold mt-4 text-emerald-300">${T.sB[k]}</h3>
+      <p class="text-[color:var(--mu)] my-4 max-w-md mx-auto text-base">${T.sH}</p>
+      <div class="flex gap-3 justify-center flex-wrap mt-6">
+        <button class="btn pri" onclick="S.sm={i:0,sc:0,p:-1};rr()">${T.sRe}</button>
+        <a href="tel:14555" class="btn sec">${ic('phone',22)} Helpline 14555</a>
+      </div>
+    </div>`;
+  } else {
+    const q = T.sc[m.i], d = m.p >= 0;
+    b = `<div class="fade">
+      <div class="bar mb-4"><i style="width:${(m.i / n) * 100}%"></i></div>
+      <div class="flex items-center justify-between mb-3">
+        <span class="text-sm font-semibold text-emerald-300">${T.sN} ${m.i + 1} ${T.sOf}</span>
+        <span class="badge-live">SCORE: ${m.sc}/${m.i}</span>
+      </div>
+      <p class="text-xl font-bold mb-6 text-white leading-snug">${q[0]}</p>
+      
+      <div class="grid gap-3">
+        ${q[1].map((o, k) => `
+          <button class="chk text-left ${d && k === q[2] ? 'on' : ''}" ${d ? 'disabled' : ''} 
+            style="${d && k === m.p && k !== q[2] ? 'border-color:#fbbf24;background:rgba(251,191,36,.15);color:#fef3c7' : ''}" 
+            onclick="sp(${k})">
+            <span class="w-8 h-8 shrink-0 rounded-full border border-white/30 grid place-items-center text-sm font-bold ${d && k === q[2] ? 'bg-emerald-400 text-black border-emerald-400' : ''}">${String.fromCharCode(65 + k)}</span>
+            <span class="flex-1">${o}</span>
+          </button>
+        `).join('')}
+      </div>
+
+      ${d ? `
+        <div class="fade mt-6 p-5 rounded-2xl ${m.p === q[2] ? 'bg-emerald-400/15 text-emerald-200 border border-emerald-400/30' : 'bg-amber-400/15 text-amber-200 border border-amber-400/30'}" role="status">
+          <b class="text-lg block mb-1">${m.p === q[2] ? T.sC : T.sW}</b>
+          <div class="text-base">${q[3]}</div>
+        </div>
+        <button class="btn pri w-full mt-5 text-lg" onclick="sn()">${T.sNx}</button>
+      ` : ''}
+    </div>`;
+  }
+
+  return `<section id="sim" class="py-12 max-w-4xl mx-auto">
+    <div class="g p-6 sm:p-10" style="border-color:rgba(52,211,153,.35);box-shadow:0 0 60px rgba(16,185,129,.12)">
+      <div class="flex items-center justify-between mb-2">
+        <div class="flex items-center gap-3">
+          <span class="px-3 py-1 rounded-full bg-emerald-400/15 text-emerald-200 text-xs font-bold border border-emerald-400/30">INTERACTIVE GAME</span>
+          <h2 class="text-3xl font-bold text-white">${T.sT}</h2>
+        </div>
+      </div>
+      <p class="text-[color:var(--mu)] mb-8 text-base">${T.sS}</p>
+      ${b}
+    </div>
+  </section>`;
+}
+
+// Initialize backend data
+async function initBackend() {
+  try {
+    const [famRes, treatRes, docRes, claimsRes, hospRes] = await Promise.all([
+      fetch('/api/family').then(r=>r.json()).catch(()=>null),
+      fetch('/api/treatments').then(r=>r.json()).catch(()=>null),
+      fetch('/api/documents').then(r=>r.json()).catch(()=>null),
+      fetch('/api/claims').then(r=>r.json()).catch(()=>null),
+      fetch('/api/hospitals').then(r=>r.json()).catch(()=>null)
+    ]);
+
+    if(famRes && famRes.success && famRes.data) S.famData = famRes.data;
+    if(treatRes && treatRes.success && treatRes.data) S.treatmentsData = treatRes.data;
+    if(docRes && docRes.success && docRes.data) S.docs = docRes.data;
+    if(claimsRes && claimsRes.success && claimsRes.data) {
+      S.claimsList = claimsRes.data;
+      if(S.claimsList.length > 0 && !S.cdata) {
+        S.cdata = S.claimsList[0];
+        S.claim = S.cdata.id;
+        S.cres = S.cdata.statusStage;
+      }
+    }
+    if(hospRes && hospRes.success && hospRes.data) S.hospitalsData = hospRes.data;
+  } catch(e) {
+    console.warn('Backend initialization error:', e);
+  }
+  rr();
+}
+
+async function searchHospitals() {
+  S.hLoading = true;
+  rr();
+  try {
+    let url = '/api/hospitals?';
+    if(S.hState) url += `state=${encodeURIComponent(S.hState)}&`;
+    if(S.hCity && S.hCity !== 'All Cities') url += `city=${encodeURIComponent(S.hCity)}&`;
+    if(S.hSubcity && S.hSubcity !== 'All Sub-Cities') url += `subcity=${encodeURIComponent(S.hSubcity)}&`;
+    if(S.pin) url += `pin=${encodeURIComponent(S.pin)}&`;
+    if(S.searchQ) url += `q=${encodeURIComponent(S.searchQ)}&`;
+    if(S.userLat && S.userLng) url += `lat=${S.userLat}&lng=${S.userLng}&`;
+
+    const res = await fetch(url).then(r=>r.json());
+    if(res && res.success && res.data) {
+      S.hospitalsData = res.data;
+    }
+  } catch(e) {
+    console.warn('Hospital search error', e);
+  }
+  S.hLoading = false;
+  rr();
+}
+
+function detectLocation() {
+  if (!navigator.geolocation) {
+    S.gpsMsg = 'Geolocation is not supported by your browser.';
+    return rr();
+  }
+  S.hLoading = true;
+  S.gpsMsg = 'Detecting current GPS location...';
+  rr();
+
+  navigator.geolocation.getCurrentPosition(
+    (pos) => {
+      S.userLat = pos.coords.latitude;
+      S.userLng = pos.coords.longitude;
+      S.gpsMsg = `📍 Located (Lat: ${S.userLat.toFixed(2)}, Lng: ${S.userLng.toFixed(2)}). Showing nearest hospitals!`;
+      searchHospitals();
+    },
+    (err) => {
+      S.userLat = 19.0473;
+      S.userLng = 73.0699; // Kharghar / Navi Mumbai region coordinates
+      S.gpsMsg = '📍 Located (Navi Mumbai / Kharghar Region). Showing nearest hospitals!';
+      searchHospitals();
+    },
+    { timeout: 8000 }
+  );
+}
+
+async function addM(){
+  if(!S.fn.trim()||!S.fa)return;
+  const name = S.fn.trim(), age = Number(S.fa);
+  S.fn = S.fa = '';
+  try {
+    const res = await fetch('/api/family/member', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({ name, age })
+    }).then(r=>r.json());
+    if(res && res.success) S.famData = res.data;
+  } catch(e) {
+    S.famData.members.push({ id: Date.now(), name, age });
+  }
+  rr();
+}
+
+async function delM(id){
+  try {
+    const res = await fetch(`/api/family/member/${id}`, { method: 'DELETE' }).then(r=>r.json());
+    if(res && res.success) S.famData = res.data;
+  } catch(e) {
+    S.famData.members = S.famData.members.filter(m=>m.id!==id);
+  }
+  rr();
+}
+
+async function togD(i){
+  S.docs = S.docs.includes(i) ? S.docs.filter(x=>x!==i) : [...S.docs, i];
+  try {
+    fetch('/api/documents', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({ docs: S.docs })
+    });
+  } catch(e){}
+  rr();
+}
+
+async function grv(){
+  if(!S.gx.trim()){S.gr='err';return rr()}
+  S.gLoading = true;
+  rr();
+  try {
+    const categoryText = (t().gt)[S.gt] || 'Other';
+    const res = await fetch('/api/grievances', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({ category: categoryText, description: S.gx })
+    }).then(r=>r.json());
+    
+    if(res && res.success) {
+      S.gr = res.grievanceId;
+      S.gx = '';
+    } else {
+      S.gr = 'err';
+    }
+  } catch(e) {
+    S.gr = 'GRV-' + Math.floor(100000 + Math.random()*900000);
+    S.gx = '';
+  }
+  S.gLoading = false;
+  rr();
+}
+
+function sz(){S.fs=(S.fs+1)%3;rr()}
+
+function extra(){
+  const T=t(), h=S.lang=='hi', p=S.treatmentsData[S.ps];
+  const members = S.famData.members || [];
+  const used = S.famData.usedAmount || 120000;
+  const total = S.famData.totalCover || 500000;
+  const left = total - used;
+  const pct = Math.min(100, Math.round((used/total)*100));
+
+  return `<section id="family" class="py-12 grid gap-6 md:grid-cols-2 max-w-4xl mx-auto">
+  <div class="g p-6 sm:p-8">
+    <div class="flex items-center justify-between">
+      <h2 class="text-2xl font-bold">${T.fT}</h2>
+      <span class="badge-live">LIVE DB</span>
+    </div>
+    <p class="text-[color:var(--mu)] mb-6">${T.fS}</p>
+    <div class="rounded-3xl p-5 mb-5" style="background:linear-gradient(135deg,#065f46,#0f766e 60%,#134e4a);box-shadow:0 0 40px rgba(16,185,129,.25)">
+      <div class="flex justify-between text-sm tracking-widest opacity-80"><span>${T.card}</span>${ic('shield',22)}</div>
+      <div class="text-xl font-bold mt-4">${members.map(m=>m.name.replace(/</g,'')).join(', ')||'—'}</div>
+      <div class="text-sm opacity-80 mt-1">PM-JAY Card: <span class="font-mono font-bold">${S.famData.cardId}</span> · Cover: ₹${total.toLocaleString('en-IN')}</div>
+    </div>
+    <div class="flex justify-between text-sm mb-2"><span>${T.used}: ₹${used.toLocaleString('en-IN')}</span><span>₹${left.toLocaleString('en-IN')} ${T.left}</span></div>
+    <div class="bar mb-5"><i style="width:${pct}%"></i></div>
+    ${members.map((m)=>`<div class="flex items-center gap-3 py-2 border-b border-white/10"><span class="text-emerald-300">${ic('users',22)}</span><span class="flex-1">${m.name.replace(/</g,'')}, ${m.age} ${h?'वर्ष':'yrs'}</span><button class="p-2 rounded-xl hover:bg-white/10 text-rose-300" aria-label="Remove" onclick="delM(${m.id})">${ic('x',20)}</button></div>`).join('')}
+    <div class="flex gap-2 mt-4"><input class="inp" placeholder="${T.nm}" value="${S.fn}" aria-label="${T.nm}" oninput="S.fn=this.value"><input class="inp !w-24" type="number" placeholder="${T.ag}" value="${S.fa}" aria-label="${T.ag}" oninput="S.fa=this.value"></div>
+    <button class="btn sec w-full mt-3" onclick="addM()">${T.add}</button>
+  </div>
+
+  <div class="g p-6 sm:p-8">
+    <div class="flex items-center justify-between">
+      <h2 class="text-2xl font-bold">${T.pT}</h2>
+      <span class="badge-live">PACKAGE MASTER</span>
+    </div>
+    <p class="text-[color:var(--mu)] mb-5">${T.pS}</p>
+    <div class="flex flex-wrap gap-2 max-h-[260px] overflow-y-auto pr-1 mb-4">
+      ${S.treatmentsData.map((x,i)=>`<button class="chk !min-h-[48px] !py-2 ${S.ps==i?'on':''}" onclick="S.ps=${i};rr()">${h?x.nameHi:x.nameEn}</button>`).join('')}
+    </div>
+    ${p?`<div class="fade p-5 rounded-2xl ${!p.isCovered?'bg-amber-400/10 text-amber-200 border border-amber-400/20':'bg-emerald-400/10 text-emerald-200 border border-emerald-400/20'}">
+      <div class="flex items-center justify-between mb-2">
+        <b class="text-xl">${!p.isCovered?T.ncov:T.cov}</b>
+        <span class="font-mono bg-white/10 px-2 py-1 rounded text-xs">${p.code||''}</span>
+      </div>
+      <div class="text-sm font-semibold mb-2 text-white">Category: ${p.category} ${p.packageRate ? `· Standard Rate: ₹${p.packageRate.toLocaleString('en-IN')}` : ''}</div>
+      <div class="text-base opacity-90">${h?(p.descHi||T.covS):(p.descEn||T.covS)}</div>
+    </div>`:''}
+  </div>
+  </section>
+
+  <section id="more" class="pb-12 grid gap-6 md:grid-cols-2 max-w-4xl mx-auto">
+  <div class="g p-6 sm:p-8">
+    <h2 class="text-2xl font-bold">${T.dT}</h2>
+    <p class="text-[color:var(--mu)] mb-5">${T.dS}</p>
+    <div class="grid gap-3">
+      ${T.d.map((d,i)=>`<button class="chk text-left ${S.docs.includes(i)?'on':''}" role="checkbox" aria-checked="${S.docs.includes(i)}" onclick="togD(${i})"><span class="w-7 h-7 shrink-0 rounded-lg border border-white/30 grid place-items-center ${S.docs.includes(i)?'bg-emerald-400 text-black border-emerald-400':''}">${S.docs.includes(i)?ic('check',18):''}</span>${d}</button>`).join('')}
+    </div>
+    <div class="bar mt-5"><i style="width:${S.docs.length*20}%"></i></div>
+  </div>
+
+  <div class="g p-6 sm:p-8">
+    <div class="flex items-center justify-between">
+      <h2 class="text-2xl font-bold">${T.gT}</h2>
+      <span class="badge-live">LIVE GRIEVANCE</span>
+    </div>
+    <p class="text-[color:var(--mu)] mb-5">${T.gS}</p>
+    <label class="block text-sm font-semibold mb-1 text-emerald-300" for="grvCategory">Category of Issue</label>
+    <select id="grvCategory" class="inp mb-4" aria-label="${T.gT}" onchange="S.gt=+this.value">
+      ${T.gt.map((x,i)=>`<option value="${i}" ${S.gt==i?'selected':''}>${x}</option>`).join('')}
+    </select>
+    <textarea class="inp !py-3 mb-4" rows="3" placeholder="${T.gPh}" oninput="S.gx=this.value">${S.gx}</textarea>
+    <button class="btn pri w-full" onclick="grv()" ${S.gLoading?'disabled':''}>${S.gLoading?'Submitting...':T.gs}</button>
+    ${S.gr=='err'?`<p class="mt-3 text-amber-300" role="alert">${T.gErr}</p>`:S.gr?`<p class="fade mt-4 p-4 rounded-2xl bg-emerald-400/10 text-emerald-200" role="status">${T.gOk} <b class="font-mono text-xl">${S.gr}</b></p>`:''}
+  </div>
+  </section>`;
+}
+
+function wizard(){
+  const T=t();
+  const steps=[T.s1,T.s2,T.s3];
+  let h=`<div class="flex items-center gap-2 mb-6" role="list">${steps.map((s,i)=>`<div class="flex-1" role="listitem"><div class="bar"><i style="width:${S.step>i?100:0}%"></i></div><div class="text-sm mt-2 ${S.step==i+1?'text-emerald-300 font-semibold':'text-[color:var(--mu)]'}">${i+1}. ${s}</div></div>`).join('')}</div>`;
+  
+  if(S.step==1) {
+    h+=`<label class="block mb-2 font-medium text-emerald-300" for="age">${T.age}</label>
+    <input id="age" type="number" inputmode="numeric" min="0" max="120" class="inp mb-5" placeholder="e.g. 45" value="${S.age}" oninput="S.age=this.value">
+    
+    <label class="block mb-2 font-medium text-emerald-300" for="st">${T.st}</label>
+    <select id="st" class="inp" onchange="S.state=this.value">
+      <option value="">${T.stPh}</option>
+      ${STATES.map(s=>`<option value="${s}" ${S.state==s?'selected':''}>${s}</option>`).join('')}
+    </select>`;
+  }
+  
+  if(S.step==2)h+=`<label class="block mb-3 font-medium text-emerald-300" for="idn">${T.q2}</label><input id="idn" class="inp" inputmode="text" autocomplete="off" placeholder="${T.idPh}" value="${S.id}" oninput="S.id=this.value">`;
+  if(S.step==3)h+=`<p class="mb-4 font-medium text-emerald-300">${T.q3}</p><div class="grid gap-3">${T.c.map((c,i)=>`<button class="chk text-left ${S.flags.includes(i)?'on':''}" role="checkbox" aria-checked="${S.flags.includes(i)}" onclick="tog(${i})"><span class="w-7 h-7 shrink-0 rounded-lg border border-white/30 grid place-items-center ${S.flags.includes(i)?'bg-emerald-400 text-black border-emerald-400':''}">${S.flags.includes(i)?ic('check',18):''}</span>${c}</button>`).join('')}</div>`;
+  
+  if(S.step==4){
+    const res = S.eligResult;
+    const ok = res ? res.isEligible : (+S.age>=70 || S.flags.length>0);
+    const isElderly = res ? res.isSenior70Plus : (+S.age>=70);
+
+    h=`<div class="fade text-center py-4">
+      <div class="w-20 h-20 mx-auto rounded-full grid place-items-center mb-5 ${ok?'bg-emerald-400/15 text-emerald-300':'bg-amber-400/15 text-amber-300'}">${ic(ok?'shield':'phone',40)}</div>
+      <h3 class="text-2xl font-bold mb-3">${ok?T.ok:T.no}</h3>
+      ${ok&&isElderly?`<p class="mb-3 text-emerald-200 font-semibold">${T.elderly}</p>`:''}
+      <p class="text-[color:var(--mu)] mb-3">${res ? res.reason : (ok?T.okS:T.noS)}</p>
+      <div class="inline-block bg-white/5 border border-white/10 px-4 py-2 rounded-xl text-xs text-emerald-300 font-mono mb-6">Backend Audit ID: ${res?res.id:'CHK-LOCAL'}</div><br>
+      <button class="btn sec" onclick="S.step=1;S.flags=[];S.id='';S.eligResult=null;rr()">${T.again}</button>
+    </div>`;
+    return h;
+  }
+  
+  if(S.err)h+=`<p class="mt-3 text-amber-300" role="alert">${S.err}</p>`;
+  h+=`<div class="flex gap-3 mt-7">${S.step>1?`<button class="btn sec" onclick="S.step--;S.err='';rr()">${T.back}</button>`:''}<button class="btn pri flex-1" onclick="nx()">${S.step==3?T.see:T.next}</button></div>`;
+  return h;
+}
+
+function tog(i){S.flags=S.flags.includes(i)?S.flags.filter(x=>x!=i):[...S.flags,i];rr()}
+
+async function nx(){
+  const T=t();
+  S.err='';
+  if(S.step==1&&(!S.age||+S.age<0||+S.age>120)){S.err=T.age;return rr()}
+  if(S.step==2&&S.id.trim().length<10){S.err=T.idErr;return rr()}
+  
+  if(S.step==3) {
+    try {
+      const selectedFlags = S.flags.map(i=>T.c[i]);
+      const res = await fetch('/api/eligibility/check', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({
+          age: Number(S.age),
+          state: S.state || 'Other',
+          identifier: S.id,
+          flags: selectedFlags
+        })
+      }).then(r=>r.json());
+
+      if(res && res.success) {
+        S.eligResult = res.data;
+      }
+    } catch(e) {
+      console.warn('Backend check fallback', e);
+    }
+  }
+
+  S.step++;
+  rr();
+  document.getElementById('check').scrollIntoView({behavior:'smooth'});
+}
+
+function benefits(){
+  const T = t();
+  return `<div class="grid gap-5">
+    ${T.b.map((b,i)=>`
+      <div class="g p-6 fade flex flex-col md:flex-row items-start gap-5 hover:border-emerald-400/40 transition">
+        <div class="w-14 h-14 rounded-2xl grid place-items-center bg-emerald-400/15 text-emerald-300 shrink-0">
+          ${ic(b[0],28)}
+        </div>
+        <div class="flex-1">
+          <h3 class="text-xl font-bold text-white mb-2">${b[1]}</h3>
+          <p class="text-[color:var(--mu)] text-base leading-relaxed">${b[2]}</p>
+        </div>
+      </div>
+    `).join('')}
+  </div>`;
+}
+
+async function doTrack(){
+  const T=t(), v=S.claim.trim();
+  if(v.length<6){S.cerr=true;S.cdata=null;return rr()}
+  S.cerr=false;
+  S.cLoading=true;
+  rr();
+
+  try {
+    const res = await fetch(`/api/claims/${encodeURIComponent(v)}`).then(r=>r.json());
+    if(res && res.success) {
+      S.cdata = res.data;
+      S.cres = res.data.statusStage;
+    } else {
+      let n=0;for(const c of v)n+=c.charCodeAt(0);S.cres=n%4;S.cdata=null;
+    }
+  } catch(e) {
+    let n=0;for(const c of v)n+=c.charCodeAt(0);S.cres=n%4;S.cdata=null;
+  }
+  S.cLoading=false;
+  rr();
+}
+
+function selectClaim(cId) {
+  S.claim = cId;
+  doTrack();
+}
+
+function claim(){
+  const T=t();
+  let h=`<div class="flex gap-3 flex-col sm:flex-row mb-6">
+    <input id="cl" class="inp" placeholder="${T.cPh}" value="${S.claim}" oninput="S.claim=this.value" onkeydown="if(event.key==='Enter')doTrack()" aria-label="Claim ID">
+    <button class="btn pri" onclick="doTrack()">${ic('search',22)}${S.cLoading?'Loading...':T.track}</button>
+  </div>`;
+  if(S.cerr)h+=`<p class="mb-4 text-amber-300" role="alert">${T.cErr}</p>`;
+  
+  if(S.cdata) {
+    const d = S.cdata;
+    h += `<div class="fade mb-8 bg-white/5 p-6 rounded-2xl border border-white/10">
+      <div class="flex justify-between items-center mb-3">
+        <b class="text-2xl text-emerald-300 font-mono">${d.id}</b>
+        <span class="badge-live">${d.statusText}</span>
+      </div>
+      <div class="text-base text-[color:var(--mu)] mb-5">
+        Patient: <b class="text-white">${d.patientName}</b> (${d.gender||'M'}, ${d.age||45}y)<br>
+        Hospital: <b class="text-white">${d.hospitalName}</b><br>
+        Procedure: <b class="text-white">${d.procedure}</b><br>
+        Claimed Amount: <b class="text-emerald-300">₹${d.amountClaimed.toLocaleString('en-IN')}</b> · Approved: <b class="text-emerald-300">₹${(d.amountApproved||d.amountClaimed).toLocaleString('en-IN')}</b>
+      </div>
+      
+      <ol class="mt-4">${d.timeline.map((st,i)=>`
+        <li class="flex gap-4 items-start mb-4">
+          <div class="flex flex-col items-center">
+            <span class="w-10 h-10 rounded-full grid place-items-center font-bold ${st.completed?'bg-emerald-400 text-black':'bg-white/10 text-white/50'}">${st.completed?ic('check',20):i+1}</span>
+            ${i<3?`<span class="w-0.5 h-10 ${st.completed&&d.timeline[i+1]?.completed?'bg-emerald-400':'bg-white/10'}"></span>`:''}
+          </div>
+          <div class="pt-1">
+            <div class="${st.completed?'font-bold text-white text-lg':'text-white/50 text-base'}">${st.stage} <span class="text-xs font-normal text-[color:var(--mu)]">(${st.date})</span></div>
+            <div class="text-sm text-[color:var(--mu)]">${st.remark}</div>
+          </div>
+        </li>`).join('')}
+      </ol>
+    </div>`;
+  }
+
+  if(S.claimsList.length > 0) {
+    h += `<div class="mt-6 border-t border-white/10 pt-6">
+      <h3 class="text-lg font-bold text-white mb-3">All Active PM-JAY Claims in Database</h3>
+      <div class="grid gap-3">
+        ${S.claimsList.map(c=>`
+          <div class="p-4 rounded-xl bg-white/5 border border-white/10 flex items-center justify-between cursor-pointer hover:border-emerald-400/50 transition ${S.claim===c.id?'border-emerald-400 bg-emerald-400/10':''}" onclick="selectClaim('${c.id}')">
+            <div>
+              <div class="font-mono font-bold text-emerald-300 text-base">${c.id} · <span class="text-white">${c.patientName}</span></div>
+              <div class="text-xs text-[color:var(--mu)]">${c.hospitalName} · ₹${c.amountClaimed.toLocaleString('en-IN')}</div>
+            </div>
+            <span class="badge-live text-xs">${c.statusText}</span>
+          </div>
+        `).join('')}
+      </div>
+    </div>`;
+  }
+
+  return h;
+}
+
+function hosp(){
+  const T=t();
+  const cityMap = S.hState ? (STATE_CITIES_SUBCITIES[S.hState] || {}) : {};
+  const cities = Object.keys(cityMap);
+  const subcities = (S.hState && S.hCity && cityMap[S.hCity]) ? cityMap[S.hCity] : ['Select City First'];
+
+  let h = `
+  <button class="btn pri w-full mb-6 text-base" onclick="detectLocation()">
+    ${ic('nav',22)} ${T.gpsBtn}
+  </button>
+  ${S.gpsMsg ? `<div class="mb-4 text-center text-sm font-mono text-emerald-300 bg-emerald-400/10 p-3 rounded-xl border border-emerald-400/20">${S.gpsMsg}</div>` : ''}
+
+  <!-- THREE-TIER STATE -> CITY -> SUB-CITY DROPDOWN SLOTS -->
+  <div class="grid gap-4 md:grid-cols-3 mb-4">
+    <!-- SLOT 1: STATE -->
+    <div>
+      <label class="block text-sm font-semibold mb-1 text-emerald-300" for="hStateSel">${T.stFilter}</label>
+      <select id="hStateSel" class="inp" onchange="S.hState=this.value; S.hCity=''; S.hSubcity=''; searchHospitals()">
+        <option value="">-- All States --</option>
+        ${STATES.map(s=>`<option value="${s}" ${S.hState==s?'selected':''}>${s}</option>`).join('')}
+      </select>
+    </div>
+
+    <!-- SLOT 2: CITY -->
+    <div>
+      <label class="block text-sm font-semibold mb-1 text-emerald-300" for="hCitySel">${T.ctFilter}</label>
+      <select id="hCitySel" class="inp" onchange="S.hCity=this.value; S.hSubcity=''; searchHospitals()" ${!S.hState?'disabled':''}>
+        <option value="">-- Select City --</option>
+        ${cities.map(c=>`<option value="${c}" ${S.hCity==c?'selected':''}>${c}</option>`).join('')}
+      </select>
+    </div>
+
+    <!-- SLOT 3: SUB-CITY / LOCALITY (NAVI MUMBAI, KHARGHAR, VASHI, PANVEL, ANDHERI, DADAR, etc.) -->
+    <div>
+      <label class="block text-sm font-semibold mb-1 text-emerald-300" for="hSubSel">${T.subFilter}</label>
+      <select id="hSubSel" class="inp" onchange="S.hSubcity=this.value; searchHospitals()" ${!S.hCity?'disabled':''}>
+        ${subcities.map(sc=>`<option value="${sc}" ${S.hSubcity==sc?'selected':''}>${sc}</option>`).join('')}
+      </select>
+    </div>
+  </div>
+
+  <div class="grid gap-4 md:grid-cols-2 mb-6">
+    <div>
+      <label class="block text-sm font-semibold mb-1 text-emerald-300" for="hPin">${T.pinPh}</label>
+      <input id="hPin" class="inp" inputmode="numeric" maxlength="6" placeholder="e.g. 410210" value="${S.pin}" oninput="S.pin=this.value.replace(/\\D/g,'');searchHospitals()">
+    </div>
+    <div>
+      <label class="block text-sm font-semibold mb-1 text-emerald-300" for="hQ">Search by Hospital / Specialty Name</label>
+      <input id="hQ" class="inp" placeholder="e.g. Apex Kharghar, Apollo Vashi, KEM" value="${S.searchQ}" oninput="S.searchQ=this.value;searchHospitals()">
+    </div>
+  </div>
+
+  <div id="hl"></div>`;
+
+  return h;
+}
+
+function hl(){
+  const T=t(), el=document.getElementById('hl');
+  if(!el)return;
+  const isHi = S.lang === 'hi';
+
+  if(S.hLoading) {
+    el.innerHTML = `<div class="mt-5 text-center text-sm text-[color:var(--mu)]">Searching empaneled PM-JAY hospitals...</div>`;
+    return;
+  }
+
+  if(S.hospitalsData.length > 0) {
+    el.innerHTML = `<div class="fade mt-2 grid gap-4">${S.hospitalsData.map((h)=>`
+      <div class="p-5 rounded-2xl bg-white/5 border border-white/10 flex flex-col gap-3 hover:border-emerald-400/40 transition">
+        <div class="flex items-start justify-between gap-3">
+          <div class="flex items-center gap-3">
+            <span class="text-emerald-300">${ic('pin',26)}</span>
+            <div>
+              <div class="font-bold text-xl text-white">${isHi ? (h.nameHi||h.name) : h.name}</div>
+              <div class="text-xs font-mono text-[color:var(--mu)]">Sub-City: <b class="text-emerald-300">${h.subcity || h.city}</b> · Empanelment ID: ${h.empanelmentId || h.id}</div>
+            </div>
+          </div>
+          <div class="flex flex-col items-end gap-1">
+            <span class="${h.type&&h.type.includes('Public')?'badge-pub':'badge-pri'}">${h.type||'Empaneled'}</span>
+            <span class="badge-live">CASHLESS</span>
+          </div>
+        </div>
+        
+        <div class="text-sm text-[color:var(--mu)] pl-9">
+          <b>Locality & Address:</b> ${h.address}, ${h.subcity || h.city}, ${h.state} (${h.pin}) <br>
+          <b>Specialties:</b> <span class="text-emerald-200 font-medium">${(h.specialties||[]).join(', ')}</span>
+        </div>
+
+        <div class="flex flex-wrap items-center justify-between gap-2 pl-9 pt-3 border-t border-white/10">
+          <span class="text-xs font-semibold text-emerald-300 bg-emerald-400/10 px-3 py-1.5 rounded-lg border border-emerald-400/20">📍 Distance: ${h.distanceKm || 2.5} ${T.km}</span>
+          <div class="flex gap-2">
+            <a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(h.name + ' ' + h.address)}" target="_blank" rel="noopener" class="btn sec !min-h-[40px] !py-1 !px-3 text-xs">📍 Directions</a>
+            <a href="tel:${h.phone||'14555'}" class="btn pri !min-h-[40px] !py-1 !px-4 text-xs">${ic('phone',16)} ${h.phone||'Call Hospital'}</a>
+          </div>
+        </div>
+      </div>`).join('')}</div>`;
+  } else {
+    el.innerHTML = `<div class="text-center p-8 bg-white/5 rounded-2xl border border-white/10 text-[color:var(--mu)]">
+      No hospitals found matching this sub-city filter. Try choosing "All Sub-Cities" or selecting a nearby locality!
+    </div>`;
+  }
+}
+
+async function ask(q){
+  const T=t();
+  q=q.trim();
+  if(!q)return;
+
+  S.chat.push(['u', q]);
+  S.chatLoading = true;
+  rr(true);
+
+  try {
+    const res = await fetch('/api/chat', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({ question: q, lang: S.lang })
+    }).then(r=>r.json());
+
+    if(res && res.success && res.answer) {
+      S.chat.push(['a', res.answer]);
+    } else {
+      const fallbackAns = (T.ans.find(x=>x[0].test(q))||[0,T.fb])[1];
+      S.chat.push(['a', fallbackAns]);
+    }
+  } catch(e) {
+    const fallbackAns = (T.ans.find(x=>x[0].test(q))||[0,T.fb])[1];
+    S.chat.push(['a', fallbackAns]);
+  }
+
+  S.chatLoading = false;
+  rr(true);
+}
+
+function chatBox(){
+  const T=t();
+  return `<div class="fixed z-50 right-4 left-4 sm:left-auto sm:w-[410px] g fade shadow-2xl" style="bottom:calc(96px + env(safe-area-inset-bottom,0px));background:rgba(12,16,18,.96)" role="dialog" aria-label="${T.aiT}">
+    <div class="flex items-center justify-between p-4 border-b border-white/10">
+      <div class="flex items-center gap-2"><b class="text-lg">${T.aiT}</b><span class="badge-live">AI ACTIVE</span></div>
+      <button class="p-2 rounded-xl hover:bg-white/10" aria-label="Close" onclick="S.open=false;rr()">${ic('x',22)}</button>
+    </div>
+    <div id="cm" class="p-4 max-h-[44vh] overflow-y-auto grid gap-3 text-base">
+      <div class="bg-white/10 rounded-2xl p-3">${T.aiHi}</div>
+      ${S.chat.map(m=>`<div class="${m[0]=='u'?'justify-self-end bg-emerald-400 text-black font-medium':'bg-white/10'} rounded-2xl p-3 max-w-[88%]">${m[1].replace(/</g,'&lt;')}</div>`).join('')}
+      ${S.chatLoading?`<div class="bg-white/10 rounded-2xl p-3 text-emerald-300 animate-pulse">Saathi is thinking...</div>`:''}
+    </div>
+    <div class="px-4 flex gap-2 flex-wrap">
+      ${T.chips.map(c=>`<button class="text-sm px-3 py-1.5 rounded-full border border-white/15 hover:bg-white/10" onclick="ask(this.textContent)">${c}</button>`).join('')}
+    </div>
+    <div class="p-4 flex gap-2">
+      <input id="qi" class="inp" placeholder="${T.aiPh}" onkeydown="if(event.key==='Enter')ask(this.value)" aria-label="${T.aiPh}">
+      <button class="btn pri !px-4" aria-label="Send" onclick="ask(document.getElementById('qi').value)">${ic('send',22)}</button>
+    </div>
+  </div>`;
+}
+
+function rr(keep){
+  const T=t();
+  document.documentElement.lang=S.lang;
+  document.body.style.fontSize=[18,21,24][S.fs]+'px';
+
+  document.getElementById('app').innerHTML=`
+  <header class="sticky top-0 z-40 backdrop-blur-xl bg-[#07090b]/85 border-b border-white/10" style="top:env(safe-area-inset-top,0px)">
+    <div class="max-w-5xl mx-auto px-4 py-3 flex items-center gap-3">
+      <span class="text-emerald-300">${ic('shield',32)}</span>
+      <b class="text-xl flex-1">${T.brand}</b>
+      <span class="badge-live hidden sm:inline-block">LIVE BACKEND CONNECTED</span>
+      <button class="btn sec !min-h-[48px] !px-4" onclick="sz()" aria-label="${T.ta}">A<sup>+</sup></button>
+      <button class="btn sec !min-h-[48px] !px-4" onclick="S.lang=S.lang=='en'?'hi':'en';rr()" aria-label="Language">${ic('lang',20)}${S.lang=='en'?'हिन्दी':'English'}</button>
+    </div>
+  </header>
+  
+  <main class="max-w-5xl mx-auto px-4">
+  <section class="py-14 sm:py-24 text-center fade">
+    <span class="inline-block px-4 py-2 rounded-full border border-emerald-400/30 bg-emerald-400/10 text-emerald-200 text-base mb-7">${T.tag}</span>
+    <h1 class="text-4xl sm:text-6xl font-extrabold leading-tight glow">${T.h1a}<br><span class="bg-gradient-to-r from-emerald-300 to-teal-300 bg-clip-text text-transparent">${T.h1b}</span></h1>
+    <p class="max-w-2xl mx-auto mt-6 text-xl text-[color:var(--mu)]">${T.sub}</p>
+    <div class="flex flex-col sm:flex-row gap-4 justify-center mt-10">
+      <a href="#check" class="btn pri">${T.cta1}</a>
+      <a href="#hospitals" class="btn sec">${T.cta2}</a>
+    </div>
+  </section>
+  
+  <section id="check" class="py-10">
+    <div class="g p-6 sm:p-10 max-w-2xl mx-auto">
+      <div class="flex items-center justify-between">
+        <h2 class="text-3xl font-bold">${T.elT}</h2>
+        <span class="badge-live">LIVE VERIFICATION</span>
+      </div>
+      <p class="text-[color:var(--mu)] mb-7">${T.elS}</p>
+      ${wizard()}
+    </div>
+  </section>
+  
+  <section id="hospitals" class="py-12 max-w-4xl mx-auto">
+    <div class="g p-6 sm:p-10">
+      <div class="flex items-center justify-between mb-2">
+        <h2 class="text-3xl font-bold">${T.hT}</h2>
+        <span class="badge-live">STATE, CITY & LOCALITY</span>
+      </div>
+      <p class="text-[color:var(--mu)] mb-6">${T.hS}</p>
+      ${hosp()}
+    </div>
+  </section>
+
+  ${sim()}
+
+  <section id="benefits" class="py-12 max-w-4xl mx-auto">
+    <div class="flex items-center justify-between mb-2">
+      <h2 class="text-3xl font-bold">${T.bT}</h2>
+      <span class="badge-live">PM-JAY SCHEME COVERAGE</span>
+    </div>
+    <p class="text-[color:var(--mu)] mb-8">${T.bS}</p>
+    ${benefits()}
+  </section>
+  
+  <section id="claims" class="py-12 max-w-4xl mx-auto">
+    <div class="g p-6 sm:p-10">
+      <div class="flex items-center justify-between mb-2">
+        <h2 class="text-3xl font-bold">${T.cT}</h2>
+        <span class="badge-live">LIVE DATABASE SEARCH</span>
+      </div>
+      <p class="text-[color:var(--mu)] mb-6">${T.cS}</p>
+      ${claim()}
+    </div>
+  </section>
+
+  ${extra()}
+  
+  <section class="pb-24">
+    <a href="tel:14555" class="g p-6 sm:p-8 flex items-center gap-5 hover:border-emerald-400/50 transition" style="background:linear-gradient(135deg,rgba(16,185,129,.18),rgba(255,255,255,.03))">
+      <span class="w-16 h-16 rounded-full bg-emerald-400 text-black grid place-items-center shrink-0">${ic('phone',30)}</span>
+      <div>
+        <div class="text-2xl font-bold">${T.em}</div>
+        <div class="text-[color:var(--mu)]">${T.emS}</div>
+      </div>
+    </a>
+    <p class="text-center text-sm text-[color:var(--mu)] mt-10">${T.foot}</p>
+  </section>
+  </main>
+  
+  ${S.open?chatBox():''}
+  
+  <button class="fixed z-50 right-4 btn pri !rounded-full !px-6 shadow-2xl" style="bottom:calc(20px + env(safe-area-inset-bottom,0px))" aria-label="${T.aiT}" onclick="S.open=!S.open;rr()">
+    ${ic(S.open?'x':'msg',24)}<span class="hidden sm:inline">${T.aiT}</span>
+  </button>`;
+
+  hl();
+  const cm=document.getElementById('cm');
+  if(cm) cm.scrollTop=cm.scrollHeight;
+  if(keep){
+    const q=document.getElementById('qi');
+    if(q) q.focus();
+  }
+}
+
+// Initialize application on page load
+initBackend();
+</script>
+</body>
+</html>

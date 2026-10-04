@@ -1,0 +1,850 @@
+{
+  "eligibilityChecks": [],
+  "claims": {
+    "PMJAY-48210": {
+      "id": "PMJAY-48210",
+      "patientName": "Ramesh Sharma",
+      "age": 52,
+      "gender": "Male",
+      "hospitalName": "Government District Hospital, Fort, Mumbai",
+      "procedure": "Knee replacement (Total Knee Arthroplasty)",
+      "category": "Orthopedics",
+      "amountClaimed": 120000,
+      "amountApproved": 120000,
+      "statusStage": 2,
+      "statusText": "Claim Approved",
+      "statusTextHi": "क्लेम स्वीकृत",
+      "submissionDate": "2026-09-28",
+      "timeline": [
+        {
+          "stage": "Claim submitted",
+          "date": "2026-09-28 10:30 AM",
+          "completed": true,
+          "remark": "Submitted via NHA IT portal by billing desk"
+        },
+        {
+          "stage": "Documents verified",
+          "date": "2026-09-29 02:15 PM",
+          "completed": true,
+          "remark": "Aadhaar & pre-authorization matched"
+        },
+        {
+          "stage": "Claim approved",
+          "date": "2026-10-01 11:00 AM",
+          "completed": true,
+          "remark": "Medical auditor approved ₹1,20,000 package rate"
+        },
+        {
+          "stage": "Payment released",
+          "date": "Pending (In PFMS Batch)",
+          "completed": false,
+          "remark": "Direct bank transfer in progress"
+        }
+      ]
+    },
+    "PMJAY-99342": {
+      "id": "PMJAY-99342",
+      "patientName": "Sunita Sharma",
+      "age": 48,
+      "gender": "Female",
+      "hospitalName": "Apex Multispeciality Hospital, Kharghar",
+      "procedure": "Heart bypass (CABG Surgery)",
+      "category": "Cardiology",
+      "amountClaimed": 180000,
+      "amountApproved": 180000,
+      "statusStage": 3,
+      "statusText": "Payment Released",
+      "statusTextHi": "भुगतान जारी किया गया",
+      "submissionDate": "2026-09-10",
+      "timeline": [
+        {
+          "stage": "Claim submitted",
+          "date": "2026-09-10 09:00 AM",
+          "completed": true,
+          "remark": "Emergency admission pre-auth generated"
+        },
+        {
+          "stage": "Documents verified",
+          "date": "2026-09-11 11:30 AM",
+          "completed": true,
+          "remark": "Empaneled card verified with SECC database"
+        },
+        {
+          "stage": "Claim approved",
+          "date": "2026-09-12 04:20 PM",
+          "completed": true,
+          "remark": "Package rate of ₹1,80,000 approved"
+        },
+        {
+          "stage": "Payment released",
+          "date": "2026-09-15 10:00 AM",
+          "completed": true,
+          "remark": "Disbursed directly to hospital bank account"
+        }
+      ]
+    },
+    "PMJAY-10455": {
+      "id": "PMJAY-10455",
+      "patientName": "Kishan Lal",
+      "age": 71,
+      "gender": "Male",
+      "hospitalName": "AIIMS New Delhi",
+      "procedure": "Cancer Chemotherapy (Cycle 1 & 2)",
+      "category": "Oncology",
+      "amountClaimed": 65000,
+      "amountApproved": 65000,
+      "statusStage": 1,
+      "statusText": "Documents Verified",
+      "statusTextHi": "दस्तावेज़ सत्यापित",
+      "submissionDate": "2026-10-02",
+      "timeline": [
+        {
+          "stage": "Claim submitted",
+          "date": "2026-10-02 08:45 AM",
+          "completed": true,
+          "remark": "Ayushman Vay Vandana card verified"
+        },
+        {
+          "stage": "Documents verified",
+          "date": "2026-10-03 01:00 PM",
+          "completed": true,
+          "remark": "Oncology protocol verified"
+        },
+        {
+          "stage": "Claim approved",
+          "date": "In Review",
+          "completed": false,
+          "remark": "Under medical desk audit"
+        },
+        {
+          "stage": "Payment released",
+          "date": "Pending",
+          "completed": false,
+          "remark": "Awaiting claim approval"
+        }
+      ]
+    },
+    "PMJAY-22891": {
+      "id": "PMJAY-22891",
+      "patientName": "Pooja Devi",
+      "age": 29,
+      "gender": "Female",
+      "hospitalName": "Patna Medical College Hospital (PMCH)",
+      "procedure": "Caesarean Delivery (C-Section)",
+      "category": "Maternity",
+      "amountClaimed": 22000,
+      "amountApproved": 22000,
+      "statusStage": 3,
+      "statusText": "Payment Released",
+      "statusTextHi": "भुगतान जारी",
+      "submissionDate": "2026-09-20",
+      "timeline": [
+        {
+          "stage": "Claim submitted",
+          "date": "2026-09-20 11:20 AM",
+          "completed": true,
+          "remark": "Maternity package logged"
+        },
+        {
+          "stage": "Documents verified",
+          "date": "2026-09-21 03:00 PM",
+          "completed": true,
+          "remark": "Mother & child registration verified"
+        },
+        {
+          "stage": "Claim approved",
+          "date": "2026-09-22 09:30 AM",
+          "completed": true,
+          "remark": "₹22,000 package approved"
+        },
+        {
+          "stage": "Payment released",
+          "date": "2026-09-24 02:00 PM",
+          "completed": true,
+          "remark": "PFMS disburse complete"
+        }
+      ]
+    }
+  },
+  "hospitals": [
+    {
+      "id": "HOSP-MH-01",
+      "name": "Apex Multispeciality Hospital, Kharghar",
+      "nameHi": "एपेक्स मल्टीस्पेशलिटी अस्पताल, खारघर, नवी मुंबई",
+      "state": "Maharashtra",
+      "city": "Mumbai & Metropolitan Region",
+      "subcity": "Navi Mumbai - Kharghar",
+      "district": "Raigad / Navi Mumbai",
+      "pin": "410210",
+      "lat": 19.0473,
+      "lng": 73.0699,
+      "type": "Private Empaneled",
+      "address": "Plot 12, Sector 12, Near Kharghar Station, Kharghar, Navi Mumbai",
+      "phone": "022-27745500",
+      "specialties": [
+        "Cardiology",
+        "Orthopedics & Joint Replacement",
+        "Nephrology & Dialysis",
+        "ICU Care"
+      ],
+      "empaneledStatus": "Active",
+      "cashlessAvailable": true,
+      "empanelmentId": "MH-NVM-PRI-012"
+    },
+    {
+      "id": "HOSP-MH-02",
+      "name": "MGM Hospital & Medical Center, Vashi",
+      "nameHi": "एमजीएम अस्पताल, वाशी, नवी मुंबई",
+      "state": "Maharashtra",
+      "city": "Mumbai & Metropolitan Region",
+      "subcity": "Navi Mumbai - Vashi",
+      "district": "Navi Mumbai",
+      "pin": "400703",
+      "lat": 19.0771,
+      "lng": 72.9986,
+      "type": "Private Trust Empaneled",
+      "address": "Plot 35, Sector 18, Vashi, Navi Mumbai",
+      "phone": "022-27822203",
+      "specialties": [
+        "General Surgery",
+        "Obstetrics & Gynaecology",
+        "Pediatrics",
+        "Oncology"
+      ],
+      "empaneledStatus": "Active",
+      "cashlessAvailable": true,
+      "empanelmentId": "MH-NVM-PRI-008"
+    },
+    {
+      "id": "HOSP-MH-03",
+      "name": "Apollo Hospitals (Empaneled PM-JAY Wing), Belapur",
+      "nameHi": "अपोलो हॉस्पिटल्स, बेलापुर, नवी मुंबई",
+      "state": "Maharashtra",
+      "city": "Mumbai & Metropolitan Region",
+      "subcity": "Navi Mumbai - Belapur",
+      "district": "Navi Mumbai",
+      "pin": "400614",
+      "lat": 19.021,
+      "lng": 73.0392,
+      "type": "Private Empaneled Wing",
+      "address": "Plot 13, Parsik Hill Road, CBD Belapur, Navi Mumbai",
+      "phone": "022-33503350",
+      "specialties": [
+        "CTVS Cardiac Surgery",
+        "Neurosurgery",
+        "Organ Transplant",
+        "Emergency Trauma"
+      ],
+      "empaneledStatus": "Active",
+      "cashlessAvailable": true,
+      "empanelmentId": "MH-NVM-PRI-001"
+    },
+    {
+      "id": "HOSP-MH-04",
+      "name": "Terna Specialty Hospital & Research Centre, Nerul",
+      "nameHi": "तेरणा स्पेशलिटी अस्पताल, नेरुल, नवी मुंबई",
+      "state": "Maharashtra",
+      "city": "Mumbai & Metropolitan Region",
+      "subcity": "Navi Mumbai - Nerul",
+      "district": "Navi Mumbai",
+      "pin": "400706",
+      "lat": 19.033,
+      "lng": 73.0182,
+      "type": "Private Empaneled Hospital",
+      "address": "Plot 3, Sector 22, Opp. Nerul Railway Station, Nerul, Navi Mumbai",
+      "phone": "022-61596159",
+      "specialties": [
+        "General Medicine",
+        "Dialysis",
+        "Orthopedics",
+        "Urology"
+      ],
+      "empaneledStatus": "Active",
+      "cashlessAvailable": true,
+      "empanelmentId": "MH-NVM-PRI-019"
+    },
+    {
+      "id": "HOSP-MH-05",
+      "name": "Sub-District Civil Hospital, Panvel",
+      "nameHi": "उप-जिला नागरिक अस्पताल, पनवेल",
+      "state": "Maharashtra",
+      "city": "Mumbai & Metropolitan Region",
+      "subcity": "Panvel",
+      "district": "Raigad / Panvel",
+      "pin": "410206",
+      "lat": 18.9894,
+      "lng": 73.1175,
+      "type": "Public Govt Hospital",
+      "address": "Near Line Ali, Old Panvel, Navi Mumbai Region",
+      "phone": "022-27452311",
+      "specialties": [
+        "General Surgery",
+        "Maternity Care",
+        "Pediatrics",
+        "Orthopedics"
+      ],
+      "empaneledStatus": "Active",
+      "cashlessAvailable": true,
+      "empanelmentId": "MH-RAI-PUB-002"
+    },
+    {
+      "id": "HOSP-MH-06",
+      "name": "MGM Hospital, Kamothe",
+      "nameHi": "एमजीएम अस्पताल, कामोठे, नवी मुंबई",
+      "state": "Maharashtra",
+      "city": "Mumbai & Metropolitan Region",
+      "subcity": "Kamothe",
+      "district": "Navi Mumbai",
+      "pin": "410209",
+      "lat": 19.0192,
+      "lng": 73.0901,
+      "type": "Public Medical College Wing",
+      "address": "Sector 1, Kamothe, Navi Mumbai",
+      "phone": "022-27437900",
+      "specialties": [
+        "Trauma Center",
+        "General Surgery",
+        "ENT",
+        "OPD / IPD"
+      ],
+      "empaneledStatus": "Active",
+      "cashlessAvailable": true,
+      "empanelmentId": "MH-NVM-PUB-004"
+    },
+    {
+      "id": "HOSP-MH-07",
+      "name": "Government District Hospital, Fort",
+      "nameHi": "सरकारी जिला अस्पताल, फोर्ट, मुंबई",
+      "state": "Maharashtra",
+      "city": "Mumbai & Metropolitan Region",
+      "subcity": "Fort / CSMT",
+      "district": "Mumbai",
+      "pin": "400001",
+      "lat": 18.9322,
+      "lng": 72.8316,
+      "type": "Public Govt",
+      "address": "Opp. CSMT Railway Station, Fort, Mumbai",
+      "phone": "022-22620123",
+      "specialties": [
+        "General Surgery",
+        "Orthopedics",
+        "Pediatrics",
+        "Cardiology",
+        "Emergency Care"
+      ],
+      "empaneledStatus": "Active",
+      "cashlessAvailable": true,
+      "empanelmentId": "MH-MUM-PUB-001"
+    },
+    {
+      "id": "HOSP-MH-08",
+      "name": "Sanjeevani Multispeciality Hospital, Andheri",
+      "nameHi": "संजीवनी मल्टीस्पेशलिटी अस्पताल, अंधेरी",
+      "state": "Maharashtra",
+      "city": "Mumbai & Metropolitan Region",
+      "subcity": "Andheri",
+      "district": "Mumbai Suburban",
+      "pin": "400069",
+      "lat": 19.1197,
+      "lng": 72.8464,
+      "type": "Private Empaneled",
+      "address": "MG Road, Andheri East, Mumbai",
+      "phone": "022-28495511",
+      "specialties": [
+        "Obstetrics & Gynaecology",
+        "Nephrology & Dialysis",
+        "Oncology Care"
+      ],
+      "empaneledStatus": "Active",
+      "cashlessAvailable": true,
+      "empanelmentId": "MH-MUM-PRI-042"
+    },
+    {
+      "id": "HOSP-MH-09",
+      "name": "City Heart & Vascular Care Centre, Dadar",
+      "nameHi": "सिटी हार्ट एंड वैस्कुलर केयर, दादर",
+      "state": "Maharashtra",
+      "city": "Mumbai & Metropolitan Region",
+      "subcity": "Dadar",
+      "district": "Mumbai",
+      "pin": "400028",
+      "lat": 19.0178,
+      "lng": 72.8478,
+      "type": "Private Empaneled",
+      "address": "Station Road, Dadar West, Mumbai",
+      "phone": "022-25983344",
+      "specialties": [
+        "Cardiology",
+        "CTVS Bypass Surgery",
+        "Coronary Angioplasty"
+      ],
+      "empaneledStatus": "Active",
+      "cashlessAvailable": true,
+      "empanelmentId": "MH-MUM-PRI-089"
+    },
+    {
+      "id": "HOSP-MH-10",
+      "name": "King Edward Memorial (KEM) Hospital, Parel",
+      "nameHi": "केईएम अस्पताल, परेल, मुंबई",
+      "state": "Maharashtra",
+      "city": "Mumbai & Metropolitan Region",
+      "subcity": "Parel",
+      "district": "Mumbai",
+      "pin": "400012",
+      "lat": 19.0026,
+      "lng": 72.8423,
+      "type": "Public Govt Medical College",
+      "address": "Acharya Donde Marg, Parel, Mumbai",
+      "phone": "022-24107000",
+      "specialties": [
+        "Cardiology",
+        "Neurosurgery",
+        "Organ Transplant",
+        "Trauma Unit",
+        "Pediatrics"
+      ],
+      "empaneledStatus": "Active",
+      "cashlessAvailable": true,
+      "empanelmentId": "MH-MUM-PUB-005"
+    },
+    {
+      "id": "HOSP-MH-11",
+      "name": "Lilavati Hospital & Research Centre (Empaneled Wing), Bandra",
+      "nameHi": "लीलाावती अस्पताल, बांद्रा, मुंबई",
+      "state": "Maharashtra",
+      "city": "Mumbai & Metropolitan Region",
+      "subcity": "Bandra",
+      "district": "Mumbai Suburban",
+      "pin": "400050",
+      "lat": 19.0512,
+      "lng": 72.8285,
+      "type": "Private Trust Empaneled",
+      "address": "A-791, Bandra Reclamation, Bandra West, Mumbai",
+      "phone": "022-26751000",
+      "specialties": [
+        "Super Specialty Oncology",
+        "Nephrology",
+        "Cardiac Care",
+        "Gastroenterology"
+      ],
+      "empaneledStatus": "Active",
+      "cashlessAvailable": true,
+      "empanelmentId": "MH-MUM-PRI-003"
+    },
+    {
+      "id": "HOSP-TH-01",
+      "name": "Chhatrapati Shivaji Maharaj Hospital, Kalwa",
+      "nameHi": "छत्रपति शिवाजी महाराज अस्पताल, कलवा, ठाणे",
+      "state": "Maharashtra",
+      "city": "Thane Region",
+      "subcity": "Kalwa",
+      "district": "Thane",
+      "pin": "400605",
+      "lat": 19.1912,
+      "lng": 72.9924,
+      "type": "Public Govt Medical College",
+      "address": "Belapur Road, Kalwa, Thane West",
+      "phone": "022-25372100",
+      "specialties": [
+        "General Medicine",
+        "Trauma Care",
+        "Orthopedics",
+        "Pediatrics"
+      ],
+      "empaneledStatus": "Active",
+      "cashlessAvailable": true,
+      "empanelmentId": "MH-THN-PUB-001"
+    },
+    {
+      "id": "HOSP-TH-02",
+      "name": "Horizon Prime Hospital, Thane West",
+      "nameHi": "हॉरिजॉन प्राइम अस्पताल, ठाणे वेस्ट",
+      "state": "Maharashtra",
+      "city": "Thane Region",
+      "subcity": "Thane West",
+      "district": "Thane",
+      "pin": "400607",
+      "lat": 19.2312,
+      "lng": 72.9781,
+      "type": "Private Empaneled",
+      "address": "Ghosale Road, Patlipada, Ghodbunder Rd, Thane West",
+      "phone": "022-25842000",
+      "specialties": [
+        "Cardiology",
+        "Orthopedics",
+        "Dialysis",
+        "General Surgery"
+      ],
+      "empaneledStatus": "Active",
+      "cashlessAvailable": true,
+      "empanelmentId": "MH-THN-PRI-014"
+    },
+    {
+      "id": "HOSP-PN-01",
+      "name": "Sassoon General Hospital & BJ Medical College, Shivajinagar",
+      "nameHi": "ससून जनरल अस्पताल, शिवाजीनगर, पुणे",
+      "state": "Maharashtra",
+      "city": "Pune Region",
+      "subcity": "Shivajinagar",
+      "district": "Pune",
+      "pin": "411001",
+      "lat": 18.5284,
+      "lng": 73.8739,
+      "type": "Public Govt",
+      "address": "Near Pune Railway Station, Jai Prakash Narayan Road, Pune",
+      "phone": "020-26128000",
+      "specialties": [
+        "General Medicine",
+        "Neurology",
+        "Polytrauma",
+        "Burns Unit",
+        "Pediatrics"
+      ],
+      "empaneledStatus": "Active",
+      "cashlessAvailable": true,
+      "empanelmentId": "MH-PUN-PUB-002"
+    },
+    {
+      "id": "HOSP-PN-02",
+      "name": "Deenanath Mangeshkar Hospital, Erandwane",
+      "nameHi": "दीनानाथ मंगेशकर अस्पताल, एरंडवणे, पुणे",
+      "state": "Maharashtra",
+      "city": "Pune Region",
+      "subcity": "Erandwane",
+      "district": "Pune",
+      "pin": "411004",
+      "lat": 18.5036,
+      "lng": 73.8344,
+      "type": "Private Trust Empaneled",
+      "address": "Erandwane, Near Mhatre Bridge, Pune",
+      "phone": "020-40151000",
+      "specialties": [
+        "Oncology",
+        "Joint Replacement",
+        "Dialysis",
+        "ICU Care"
+      ],
+      "empaneledStatus": "Active",
+      "cashlessAvailable": true,
+      "empanelmentId": "MH-PUN-PRI-015"
+    },
+    {
+      "id": "HOSP-DL-01",
+      "name": "AIIMS (All India Institute of Medical Sciences)",
+      "nameHi": "एम्स (अखिल भारतीय आयुर्विज्ञान संस्थान) नई दिल्ली",
+      "state": "Delhi NCR",
+      "city": "New Delhi",
+      "subcity": "Ansari Nagar (AIIMS)",
+      "district": "New Delhi",
+      "pin": "110001",
+      "lat": 28.5672,
+      "lng": 77.21,
+      "type": "Public Super-Specialty",
+      "address": "Sri Aurobindo Marg, Ansari Nagar, New Delhi",
+      "phone": "011-26588500",
+      "specialties": [
+        "All 1,900+ PM-JAY Packages",
+        "Oncology",
+        "Cardiology",
+        "Neurosurgery",
+        "Organ Transplant"
+      ],
+      "empaneledStatus": "Active",
+      "cashlessAvailable": true,
+      "empanelmentId": "DL-DEL-PUB-001"
+    },
+    {
+      "id": "HOSP-DL-02",
+      "name": "Safdarjung Super Speciality Hospital",
+      "nameHi": "सफदरजंग सुपर स्पेशलिटी अस्पताल, नई दिल्ली",
+      "state": "Delhi NCR",
+      "city": "New Delhi",
+      "subcity": "Safdarjung Enclave",
+      "district": "New Delhi",
+      "pin": "110029",
+      "lat": 28.5695,
+      "lng": 77.2064,
+      "type": "Public Govt",
+      "address": "Ring Road, Opp. AIIMS, New Delhi",
+      "phone": "011-26165060",
+      "specialties": [
+        "Burn Care",
+        "Orthopedics",
+        "Urology",
+        "Nephrology",
+        "General Surgery"
+      ],
+      "empaneledStatus": "Active",
+      "cashlessAvailable": true,
+      "empanelmentId": "DL-DEL-PUB-002"
+    },
+    {
+      "id": "HOSP-DL-03",
+      "name": "Max Super Speciality Hospital (PM-JAY Wing Saket)",
+      "nameHi": "मैक्स सुपर स्पेशलिटी अस्पताल, साकेत, नई दिल्ली",
+      "state": "Delhi NCR",
+      "city": "South Delhi",
+      "subcity": "Saket",
+      "district": "South Delhi",
+      "pin": "110017",
+      "lat": 28.5273,
+      "lng": 77.2117,
+      "type": "Private Empaneled Wing",
+      "address": "Press Enclave Road, Saket, New Delhi",
+      "phone": "011-26515050",
+      "specialties": [
+        "Cardiology",
+        "Oncology",
+        "Nephrology & Dialysis",
+        "Orthopedics"
+      ],
+      "empaneledStatus": "Active",
+      "cashlessAvailable": true,
+      "empanelmentId": "DL-SDEL-PRI-010"
+    },
+    {
+      "id": "HOSP-UP-01",
+      "name": "King George Medical University (KGMU)",
+      "nameHi": "किंग जॉर्ज चिकित्सा विश्वविद्यालय (KGMU) लखनऊ",
+      "state": "Uttar Pradesh",
+      "city": "Lucknow",
+      "subcity": "Chowk (KGMU)",
+      "district": "Lucknow",
+      "pin": "226003",
+      "lat": 26.8687,
+      "lng": 80.9168,
+      "type": "Public Tertiary Medical University",
+      "address": "Shah Mina Road, Chowk, Lucknow",
+      "phone": "0522-2257540",
+      "specialties": [
+        "General Surgery",
+        "Cardiology",
+        "Nephrology",
+        "Obstetrics",
+        "Radiotherapy"
+      ],
+      "empaneledStatus": "Active",
+      "cashlessAvailable": true,
+      "empanelmentId": "UP-LKO-PUB-001"
+    },
+    {
+      "id": "HOSP-UP-02",
+      "name": "Sir Sunderlal Hospital (BHU)",
+      "nameHi": "सर सुंदरलाल अस्पताल (BHU) वाराणसी",
+      "state": "Uttar Pradesh",
+      "city": "Varanasi",
+      "subcity": "Lanka (BHU Campus)",
+      "district": "Varanasi",
+      "pin": "221005",
+      "lat": 25.2758,
+      "lng": 82.9996,
+      "type": "Public University Hospital",
+      "address": "Banaras Hindu University Campus, Lanka, Varanasi",
+      "phone": "0542-2369291",
+      "specialties": [
+        "Oncology",
+        "Cardiothoracic Surgery",
+        "Dialysis",
+        "Pediatric Surgery"
+      ],
+      "empaneledStatus": "Active",
+      "cashlessAvailable": true,
+      "empanelmentId": "UP-VAR-PUB-001"
+    },
+    {
+      "id": "HOSP-BR-01",
+      "name": "Patna Medical College & Hospital (PMCH)",
+      "nameHi": "पटना मेडिकल कॉलेज एवं अस्पताल (PMCH), पटना",
+      "state": "Bihar",
+      "city": "Patna",
+      "subcity": "Ashok Rajpath (PMCH)",
+      "district": "Patna",
+      "pin": "800004",
+      "lat": 25.6207,
+      "lng": 85.1523,
+      "type": "Public Govt Medical College",
+      "address": "Ashok Rajpath, Mahendru, Patna",
+      "phone": "0612-2300080",
+      "specialties": [
+        "Maternity Care",
+        "Orthopedics",
+        "General Surgery",
+        "Pediatrics"
+      ],
+      "empaneledStatus": "Active",
+      "cashlessAvailable": true,
+      "empanelmentId": "BR-PAT-PUB-001"
+    },
+    {
+      "id": "HOSP-BR-02",
+      "name": "Indira Gandhi Institute of Medical Sciences (IGIMS)",
+      "nameHi": "इंदिरा गांधी आयुर्विज्ञान संस्थान (IGIMS), बेली रोड, पटना",
+      "state": "Bihar",
+      "city": "Patna",
+      "subcity": "Bailey Road (IGIMS)",
+      "district": "Patna",
+      "pin": "800014",
+      "lat": 25.6094,
+      "lng": 85.0886,
+      "type": "Public Super-Specialty",
+      "address": "Bailey Road, Sheikhpura, Patna",
+      "phone": "0612-2297631",
+      "specialties": [
+        "Oncology",
+        "Urology",
+        "Gastroenterology",
+        "Cardiology"
+      ],
+      "empaneledStatus": "Active",
+      "cashlessAvailable": true,
+      "empanelmentId": "BR-PAT-PUB-002"
+    }
+  ],
+  "familyCards": {
+    "DEFAULT": {
+      "cardId": "AYUSH-8849-2026",
+      "totalCover": 500000,
+      "usedAmount": 120000,
+      "members": []
+    }
+  },
+  "treatments": [
+    {
+      "id": 1,
+      "nameEn": "Dialysis (Hemodialysis)",
+      "nameHi": "डायलिसिस (हीमोडायलिसिस)",
+      "category": "Nephrology",
+      "isCovered": true,
+      "code": "NEP001",
+      "packageRate": 1800,
+      "descEn": "Covered 100% cashless under PM-JAY. Includes pre-procedure lab tests, EPO injections, and post-dialysis care.",
+      "descHi": "PM-JAY के तहत पूरी तरह से मुफ़्त और कैशलेस। लैब टेस्ट और दवाएँ शामिल हैं।"
+    },
+    {
+      "id": 2,
+      "nameEn": "Cataract Surgery with Foldable IOL",
+      "nameHi": "मोतियाबिंद सर्जरी (फ़ोल्डेबल लेंस)",
+      "category": "Ophthalmology",
+      "isCovered": true,
+      "code": "OPH002",
+      "packageRate": 10500,
+      "descEn": "Phacoemulsification surgery with foldable Intraocular Lens (IOL) implant package.",
+      "descHi": "फ़ोल्डेबल लेंस के साथ मोतियाबिंद का ऑपरेशन पूरी तरह मुफ़्त शामिल है।"
+    },
+    {
+      "id": 3,
+      "nameEn": "Total Knee Replacement (TKR)",
+      "nameHi": "घुटना प्रत्यारोपण (टोटल नी रिप्लेसमेंट)",
+      "category": "Orthopedics",
+      "isCovered": true,
+      "code": "ORT015",
+      "packageRate": 120000,
+      "descEn": "Unilateral/Bilateral total knee replacement implant, surgery, stay & physiotherapy package rate covered.",
+      "descHi": "घुटना प्रत्यारोपण इम्प्लांट, ऑपरेशन, भर्ती और फिजियोथेरेपी पैकेज शामिल है।"
+    },
+    {
+      "id": 4,
+      "nameEn": "Heart Bypass Surgery (CABG)",
+      "nameHi": "हृदय बाईपास सर्जरी (CABG)",
+      "category": "Cardiology",
+      "isCovered": true,
+      "code": "CAR008",
+      "packageRate": 180000,
+      "descEn": "Coronary Artery Bypass Grafting. Includes ICU stay, pre-auth, surgery, & 15-day discharge medicines.",
+      "descHi": "बाईपास सर्जरी, आईसीयू भर्ती, ऑपरेशन और 15 दिनों की दवाइियाँ शामिल हैं।"
+    },
+    {
+      "id": 5,
+      "nameEn": "Cancer Chemotherapy & Radiation",
+      "nameHi": "कैंसर कीमोथेरेपी एवं रेडिएशन",
+      "category": "Oncology",
+      "isCovered": true,
+      "code": "ONC003",
+      "packageRate": 85000,
+      "descEn": "All cycles of chemotherapy, targeted immunotherapy, and radiation oncology covered.",
+      "descHi": "कैंसर कीमोथेरेपी और रेडिएशन के सभी चक्र मुफ़्त शामिल हैं।"
+    },
+    {
+      "id": 6,
+      "nameEn": "Normal Delivery & C-Section",
+      "nameHi": "सामान्य प्रसव एवं सिज़ेरियन",
+      "category": "Maternity",
+      "isCovered": true,
+      "code": "OBG001",
+      "packageRate": 22000,
+      "descEn": "Normal vaginal delivery and Caesarean section covered including newborn baby care.",
+      "descHi": "सामान्य और सिज़ेरियन प्रसव तथा नवजात शिशु की देखभाल पूरी तरह मुफ़्त है।"
+    },
+    {
+      "id": 7,
+      "nameEn": "Appendix Removal (Appendectomy)",
+      "nameHi": "अपेंडिक्स ऑपरेशन",
+      "category": "General Surgery",
+      "isCovered": true,
+      "code": "SUR012",
+      "packageRate": 25000,
+      "descEn": "Laparoscopic or open appendectomy covered including post-op care.",
+      "descHi": "अपेंडिक्स का लैप्रोस्कोपिक या ओपन ऑपरेशन शामिल है।"
+    },
+    {
+      "id": 8,
+      "nameEn": "Gallbladder Removal (Cholecystectomy)",
+      "nameHi": "पित्त की थैली का ऑपरेशन",
+      "category": "General Surgery",
+      "isCovered": true,
+      "code": "SUR019",
+      "packageRate": 28000,
+      "descEn": "Laparoscopic gallbladder removal package covered.",
+      "descHi": "पित्त की थैली का दूरबीन द्वारा ऑपरेशन शामिल है।"
+    },
+    {
+      "id": 9,
+      "nameEn": "Brain & Spine Surgery",
+      "nameHi": "मस्तिष्क एवं रीढ़ की हड्डी की सर्जरी",
+      "category": "Neurosurgery",
+      "isCovered": true,
+      "code": "NEU005",
+      "packageRate": 150000,
+      "descEn": "Craniotomy, brain tumor excision, and spinal decompression surgery.",
+      "descHi": "ब्रेन ट्यूमर और स्पाइन ऑपरेशन PM-JAY में पूरी तरह मुफ़्त शामिल है।"
+    },
+    {
+      "id": 10,
+      "nameEn": "Cosmetic & Aesthetic Surgery",
+      "nameHi": "कॉस्मेटिक एवं सौंदर्य सर्जरी",
+      "category": "Plastic Surgery",
+      "isCovered": false,
+      "code": "COS001",
+      "packageRate": 0,
+      "descEn": "Elective cosmetic enhancements are NOT covered under PM-JAY unless medically required for reconstructive trauma.",
+      "descHi": "ऐच्छिक कॉस्मेटिक सौंदर्य सर्जरी PM-JAY में कवर नहीं है।"
+    },
+    {
+      "id": 11,
+      "nameEn": "Outpatient Consultation (OPD Only)",
+      "nameHi": "सिर्फ़ ओपीडी (OPD) परामर्श",
+      "category": "Outpatient",
+      "isCovered": false,
+      "code": "OPD001",
+      "packageRate": 0,
+      "descEn": "Standalone outpatient consultation without hospital admission is not covered. PM-JAY requires inpatient hospitalization (min 24h stay).",
+      "descHi": "बिना भर्ती हुए सिर्फ़ ओपीडी परामर्श कवर नहीं है। 24 घंटे की भर्ती आवश्यक है।"
+    }
+  ],
+  "grievances": [
+    {
+      "id": "GRV-100001",
+      "category": "Hospital asked for money",
+      "description": "Hospital desk asked for ₹5000 deposit for medicines despite showing Ayushman Card.",
+      "status": "Under Investigation",
+      "assignedOfficer": "District Nodal Officer (DNO-Zone 3)",
+      "createdAt": "2026-10-02T14:20:00.000Z"
+    }
+  ],
+  "userDocuments": {
+    "DEFAULT": [
+      0,
+      1
+    ]
+  }
+}

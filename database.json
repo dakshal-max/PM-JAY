@@ -705,7 +705,22 @@
       "cardId": "AYUSH-8849-2026",
       "totalCover": 500000,
       "usedAmount": 120000,
-      "members": []
+      "members": [
+        {
+          "id": 1,
+          "name": "Ramesh",
+          "age": 52,
+          "gender": "Male",
+          "relationship": "Head of Family"
+        },
+        {
+          "id": 2,
+          "name": "Sunita",
+          "age": 48,
+          "gender": "Female",
+          "relationship": "Spouse"
+        }
+      ]
     }
   },
   "treatments": [

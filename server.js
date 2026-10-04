@@ -156,7 +156,7 @@ app.post('/api/claims', (req, res) => {
 });
 
 // ---------------------------------------------------------
-// 3. HOSPITALS API (State, City, Sub-City / Locality, PIN & Live GPS Search)
+// 3. HOSPITALS API
 // ---------------------------------------------------------
 app.get('/api/hospitals', (req, res) => {
   const pin = (req.query.pin || '').trim();
@@ -351,16 +351,16 @@ app.post('/api/chat', (req, res) => {
       : 'You can track your hospital claim live on this website using the "Track your claim" tool by entering your Claim ID (e.g. PMJAY-48210).';
   } else if (/hospital|अस्पताल|पिन|pin|city|kharghar|vashi|panvel|navi mumbai|खारघर|वाशी/i.test(q)) {
     reply = isHindi
-      ? 'नवी मुंबई, खारघर, वाशी, पनवेल, अंधेरी, दादर सहित सभी शहरों में PM-JAY सूचीबद्ध अस्पताल उपलब्ध हैं। नीचे राज्य, शहर और उप-शहर चुनें।'
-      : 'Empaneled PM-JAY hospitals are available in Navi Mumbai, Kharghar, Vashi, Panvel, Andheri, Dadar and all regions. Select State, City & Sub-City below.';
+      ? 'आयुष्मान हब (AyushmanHub) में नवी मुंबई, खारघर, वाशी, पनवेल, अंधेरी, दादर सहित सभी शहरों में PM-JAY सूचीबद्ध अस्पताल उपलब्ध हैं।'
+      : 'AyushmanHub provides empaneled PM-JAY hospitals in Navi Mumbai, Kharghar, Vashi, Panvel, Andheri, Dadar and all regions.';
   } else if (/70|senior|elderly|वय वंदना|बुज़ुर्ग/i.test(q)) {
     reply = isHindi
       ? '70 वर्ष या उससे अधिक आयु के सभी वरिष्ठ नागरिक "आयुष्मान वय वंदना" कार्ड के लिए पात्र हैं, चाहे उनकी पारिवारिक आय कुछ भी हो! उन्हें अलग से ₹5 लाख का सालाना कवर मिलता है।'
       : 'All senior citizens aged 70 and above qualify under Ayushman Vay Vandana card regardless of family income, receiving an exclusive ₹5 Lakh yearly cover!';
   } else {
     reply = isHindi
-      ? `आपके सवाल "${q}" के संबंध में: PM-JAY योजना में भर्ती से पूर्व एवं पश्चात् की दवाएँ, जाँच तथा 1,900+ सर्जरी मुफ़्त हैं। अधिक जानकारी हेतु हमारी हेल्पलाइन 14555 पर कॉल करें।`
-      : `Regarding your query "${q}": PM-JAY covers pre and post hospitalization tests, medicines and 1,900+ procedures cashless up to ₹5 Lakh/year. You can also dial toll-free helpline 14555.`;
+      ? `आपके सवाल "${q}" के संबंध में: आयुष्मान हब (AyushmanHub) पर भर्ती से पूर्व एवं पश्चात् की दवाएँ, जाँच तथा 1,900+ सर्जरी मुफ़्त हैं। अधिक जानकारी हेतु हेल्प लाइन 14555 पर कॉल करें।`
+      : `Regarding your query "${q}": AyushmanHub covers pre and post hospitalization tests, medicines and 1,900+ procedures cashless up to ₹5 Lakh/year. You can also dial toll-free helpline 14555.`;
   }
 
   return res.json({ success: true, answer: reply });
@@ -390,5 +390,5 @@ app.get('*', (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`Ayushman Saathi Server running on http://localhost:${PORT}`);
+  console.log(`AyushmanHub Server running on http://localhost:${PORT}`);
 });

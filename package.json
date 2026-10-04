@@ -1,14 +1,14 @@
 {
-  "name": "ayushman-saathi-app",
+  "name": "ayushman-hub-app",
   "version": "1.0.0",
-  "description": "Ayushman Saathi - PM-JAY Guide Full-Stack Live Web Application",
+  "description": "AyushmanHub - PM-JAY Guide Full-Stack Live Web Application",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
     "dev": "node --watch server.js"
   },
   "dependencies": {
-    "express": "^4.19.2",
-    "cors": "^2.8.5"
+    "cors": "^2.8.5",
+    "express": "^4.19.2"
   }
 }
